@@ -779,3 +779,21 @@ html[dir="rtl"].dark .drawer-link-active {
 
 
 
+
+/* Active category filter chip: high-contrast icon & text */
+.category-filter-btn.active,
+.category-filter-btn.active i,
+.category-filter-btn.active svg {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF;
+}
+.category-filter-btn.active i,
+.category-filter-btn.active svg {
+  color: #FDE68A !important;
+  stroke: #FDE68A;
+}
+.category-filter-btn.active {
+  background-color: #254C3A !important;
+  border-color: #254C3A !important;
+}
+
