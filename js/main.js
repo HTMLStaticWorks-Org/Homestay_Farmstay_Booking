@@ -157,9 +157,17 @@ const SylvanNavigation = {
     const mobileDrawer = document.getElementById('mobile-drawer');
     const drawerClose = document.getElementById('mobile-drawer-close');
 
+    const closeDrawer = () => {
+      const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+      mobileDrawer?.querySelector('.drawer-content')?.classList.add(isRtl ? '-translate-x-full' : 'translate-x-full');
+      document.body.classList.remove('drawer-open', 'overflow-hidden');
+      setTimeout(() => mobileDrawer?.classList.add('hidden'), 300);
+    };
+
     if (menuToggle && mobileDrawer) {
       menuToggle.addEventListener('click', () => {
         mobileDrawer.classList.remove('hidden');
+        document.body.classList.add('drawer-open', 'overflow-hidden');
         if (window.lucide) lucide.createIcons();
         setTimeout(() => {
           mobileDrawer.querySelector('.drawer-content')?.classList.remove('translate-x-full', '-translate-x-full');
@@ -168,10 +176,14 @@ const SylvanNavigation = {
     }
 
     if (drawerClose && mobileDrawer) {
-      drawerClose.addEventListener('click', () => {
-        const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
-        mobileDrawer.querySelector('.drawer-content')?.classList.add(isRtl ? '-translate-x-full' : 'translate-x-full');
-        setTimeout(() => mobileDrawer.classList.add('hidden'), 300);
+      drawerClose.addEventListener('click', closeDrawer);
+    }
+
+    if (mobileDrawer) {
+      mobileDrawer.addEventListener('click', (e) => {
+        if (e.target === mobileDrawer) {
+          closeDrawer();
+        }
       });
     }
   }

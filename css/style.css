@@ -662,7 +662,7 @@ html.dark .glass-card {
   position: fixed;
   bottom: 28px;
   right: 28px;
-  z-index: 9999;
+  z-index: 40;
   width: 48px;
   height: 48px;
   border-radius: 9999px;
@@ -696,5 +696,29 @@ html[dir="rtl"] #back-to-top-btn {
   right: auto;
   left: 28px;
 }
+
+/* ==============================================================
+   MOBILE & TABLET DRAWER ENHANCEMENTS
+   ============================================================== */
+#mobile-drawer {
+  z-index: 10000 !important;
+}
+
+#mobile-drawer .drawer-content {
+  z-index: 10001 !important;
+  max-height: 100vh;
+  max-height: 100dvh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Ensure floating back-to-top never overlaps mobile drawer */
+body.drawer-open #back-to-top-btn,
+#mobile-drawer:not(.hidden) ~ #back-to-top-btn {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
 
 

@@ -98,9 +98,9 @@
           </svg>
         </button>
 
-        <!-- Primary Auth CTA (Sign Up as Primary CTA) -->
-        <div class="hidden sm:flex items-center">
-          <a href="signup.html" class="btn-primary text-xs px-3.5 xl:px-5 py-2 xl:py-2.5 shadow-sm inline-flex items-center gap-1.5 xl:gap-2 whitespace-nowrap">
+        <!-- Primary Auth CTA (Sign Up in all views: mobile, tablet, desktop) -->
+        <div class="flex items-center">
+          <a href="signup.html" class="btn-primary text-xs px-2.5 sm:px-3.5 xl:px-5 py-1.5 sm:py-2 xl:py-2.5 shadow-sm inline-flex items-center gap-1 sm:gap-1.5 xl:gap-2 whitespace-nowrap">
             <i data-lucide="user-plus" class="w-3.5 h-3.5 text-amberAccent"></i>
             <span>Sign Up</span>
           </a>
@@ -114,8 +114,8 @@
   </header>
 
   <!-- Mobile Drawer Overlay -->
-  <div id="mobile-drawer" class="fixed inset-0 z-50 bg-stone-950/60 backdrop-blur-sm hidden transition-opacity">
-    <div class="drawer-content fixed top-0 right-0 w-80 max-w-full h-full bg-cream dark:bg-[#15221D] p-6 shadow-2xl flex flex-col justify-between transition-transform duration-300 translate-x-full">
+  <div id="mobile-drawer" class="fixed inset-0 z-[10000] bg-stone-950/60 backdrop-blur-sm hidden transition-opacity">
+    <div class="drawer-content fixed top-0 right-0 w-80 max-w-full h-full bg-cream dark:bg-[#15221D] p-5 sm:p-6 shadow-2xl flex flex-col justify-between transition-transform duration-300 translate-x-full overflow-y-auto">
       <div>
         <div class="flex items-center justify-between pb-6 border-b border-stone-200 dark:border-stone-800">
           <div class="flex items-center gap-2.5">
@@ -157,9 +157,12 @@
         </nav>
       </div>
 
-      <div class="pt-6 border-t border-stone-200 dark:border-stone-800 flex flex-col gap-3">
-        <a href="login.html" class="btn-secondary text-xs text-center">Log In</a>
-        <a href="signup.html" class="btn-primary text-xs text-center">Create Free Account</a>
+      <div class="pt-4 sm:pt-6 border-t border-stone-200 dark:border-stone-800 flex flex-col gap-2.5 sm:gap-3 shrink-0 my-2">
+        <a href="login.html" class="btn-secondary text-xs text-center py-2 sm:py-2.5 rounded-full font-semibold">Log In</a>
+        <a href="signup.html" class="btn-primary text-xs text-center py-2 sm:py-2.5 rounded-full font-semibold inline-flex items-center justify-center gap-1.5">
+          <i data-lucide="user-plus" class="w-3.5 h-3.5 text-amberAccent"></i>
+          <span>Sign Up</span>
+        </a>
       </div>
     </div>
   </div>
