@@ -1114,6 +1114,30 @@ const SYLVAN_DATA = {
       location: "Highlands",
       image: "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=900&q=80",
       description: "Gathering by the loch fire sharing Scottish folklore and acoustic melodies."
+    },
+    {
+      id: "gal-13",
+      category: "Homestays",
+      title: "Cotswold Honey-Stone Farmhouse",
+      location: "Gloucestershire",
+      image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=900&q=80",
+      description: "Picturesque 17th-century country residence surrounded by wildflower meadows."
+    },
+    {
+      id: "gal-14",
+      category: "Farmstays",
+      title: "Tuscan Vineyard Bastide at Sunset",
+      location: "Chianti Hills",
+      image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80",
+      description: "Historic stone estate overlooking rolling vineyard terraces and cypress trails."
+    },
+    {
+      id: "gal-15",
+      category: "Nature",
+      title: "Misty Pine Forest & Alpine Lake",
+      location: "Cascade Mountains",
+      image: "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=900&q=80",
+      description: "Tranquil mirror waters reflecting old-growth evergreen forest canopy."
     }
   ],
 

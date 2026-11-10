@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="gallery-item group relative overflow-hidden rounded-3xl bg-stone-100 dark:bg-stone-900 border border-stone-200/80 dark:border-stone-800/80 cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 aspect-[4/3] w-full" data-index="${idx}">
         <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
         
-        <!-- Hover Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+        <!-- Hover / Tap Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white pointer-events-none">
           <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-800/90 text-white backdrop-blur-md w-fit mb-2">
             ${item.category}
           </span>
