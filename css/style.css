@@ -826,3 +826,22 @@ html[dir="rtl"].dark .drawer-link-active {
   #lightbox-next-btn { right: 0.75rem !important; top: auto !important; bottom: 1.5rem; transform: none !important; }
 }
 
+
+/* Gallery category filter: selected pill always high-contrast */
+.gallery-category-btn.active {
+  background-color: #254C3A !important;
+  color: #FFFFFF !important;
+}
+.gallery-category-btn:not(.active) {
+  background-color: rgba(255, 255, 255, 0.92);
+  color: #1C1917;
+}
+html.dark .gallery-category-btn:not(.active) {
+  background-color: rgba(41, 37, 36, 0.92);
+  color: #E7E5E4;
+}
+.gallery-category-btn:not(.active):hover {
+  background-color: #254C3A;
+  color: #FFFFFF;
+}
+

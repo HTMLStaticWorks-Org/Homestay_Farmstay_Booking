@@ -101,12 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Filter Buttons
   filterButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      filterButtons.forEach(b => {
-        b.classList.remove('bg-emerald-800', 'text-white', 'shadow-sm');
-        b.classList.add('bg-white', 'dark:bg-[#15221D]', 'text-stone-700', 'dark:text-stone-300');
-      });
-      btn.classList.add('bg-emerald-800', 'text-white', 'shadow-sm');
-      btn.classList.remove('bg-white', 'dark:bg-[#15221D]', 'text-stone-700', 'dark:text-stone-300');
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
       currentCategory = btn.getAttribute('data-category');
       renderGallery();
