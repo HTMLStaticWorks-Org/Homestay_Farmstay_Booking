@@ -828,6 +828,11 @@ html[dir="rtl"].dark .drawer-link-active {
 /* ==============================================================
    GALLERY FULLSCREEN LIGHTBOX (hidden until .active)
    ============================================================== */
+#gallery-lightbox-modal:not(.active),
+.lightbox-modal:not(.active) {
+  display: none !important;
+}
+
 #gallery-lightbox-modal,
 .lightbox-modal {
   position: fixed;
@@ -847,9 +852,9 @@ html[dir="rtl"].dark .drawer-link-active {
 #gallery-lightbox-modal.active,
 .lightbox-modal.active {
   display: flex !important;
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
 }
 @media (max-width: 639px) {
   #lightbox-prev-btn { left: 0.75rem !important; top: auto !important; bottom: 1.5rem; transform: none !important; }
