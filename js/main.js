@@ -186,6 +186,42 @@ const SylvanNavigation = {
         }
       });
     }
+
+    this.highlightActiveMenu();
+  },
+
+  highlightActiveMenu: function() {
+    let page = window.location.pathname.split('/').pop().split('?')[0].split('#')[0] || 'index.html';
+    if (!page || page === '') page = 'index.html';
+    if (page === 'stay-details.html') page = 'stays.html';
+
+    // Desktop Navbar active link
+    document.querySelectorAll('header nav a, header nav button').forEach(el => {
+      const href = el.getAttribute('href');
+      if (href && (href === page || (page === 'index.html' && href === './'))) {
+        el.classList.add('nav-link-active', 'text-forest', 'dark:text-emerald-300', 'font-bold');
+        const parentGroup = el.closest('.relative.group');
+        if (parentGroup) {
+          parentGroup.querySelector('button')?.classList.add('nav-link-active', 'text-forest', 'dark:text-emerald-300', 'font-bold');
+        }
+      }
+    });
+
+    // If on index.html or home-2.html, ensure the Home dropdown button is marked active
+    if (page === 'index.html' || page === 'home-2.html') {
+      const homeBtn = document.querySelector('header nav .relative.group button');
+      if (homeBtn) {
+        homeBtn.classList.add('nav-link-active', 'text-forest', 'dark:text-emerald-300', 'font-bold');
+      }
+    }
+
+    // Mobile Drawer active link
+    document.querySelectorAll('#mobile-drawer nav a').forEach(el => {
+      const href = el.getAttribute('href');
+      if (href && (href === page || (page === 'index.html' && href === './'))) {
+        el.classList.add('drawer-link-active', 'text-forest', 'dark:text-emerald-300', 'font-bold');
+      }
+    });
   }
 };
 
