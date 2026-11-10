@@ -801,6 +801,7 @@ html[dir="rtl"].dark .drawer-link-active {
 /* ==============================================================
    GALLERY FULLSCREEN LIGHTBOX (hidden until .active)
    ============================================================== */
+#gallery-lightbox-modal,
 .lightbox-modal {
   position: fixed;
   inset: 0;
@@ -816,7 +817,9 @@ html[dir="rtl"].dark .drawer-link-active {
   pointer-events: none;
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
+#gallery-lightbox-modal.active,
 .lightbox-modal.active {
+  display: flex !important;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;

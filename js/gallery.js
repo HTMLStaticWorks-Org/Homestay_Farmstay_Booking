@@ -65,6 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!lightboxModal) return;
     activeIndex = index;
     updateLightboxContent();
+    lightboxModal.classList.remove('hidden');
+    // Force a small reflow before adding .active for the transition
+    void lightboxModal.offsetWidth;
     lightboxModal.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
@@ -72,6 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeLightbox() {
     if (!lightboxModal) return;
     lightboxModal.classList.remove('active');
+    setTimeout(() => {
+      if (!lightboxModal.classList.contains('active')) {
+        lightboxModal.classList.add('hidden');
+      }
+    }, 300);
     document.body.style.overflow = '';
   }
 
