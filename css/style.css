@@ -797,3 +797,32 @@ html[dir="rtl"].dark .drawer-link-active {
   border-color: #254C3A !important;
 }
 
+
+/* ==============================================================
+   GALLERY FULLSCREEN LIGHTBOX (hidden until .active)
+   ============================================================== */
+.lightbox-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10002;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: rgba(12, 10, 9, 0.92);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.lightbox-modal.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+@media (max-width: 639px) {
+  #lightbox-prev-btn { left: 0.75rem !important; top: auto !important; bottom: 1.5rem; transform: none !important; }
+  #lightbox-next-btn { right: 0.75rem !important; top: auto !important; bottom: 1.5rem; transform: none !important; }
+}
+
