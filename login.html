@@ -61,16 +61,21 @@
   <div class="relative z-10 w-full max-w-md my-auto flex flex-col">
     <!-- Top Utilities Bar (Positioned above card to prevent overlapping on mobile/tablet) -->
     <div class="flex items-center justify-end gap-2 mb-3 px-1">
+      <!-- Theme Toggle -->
       <button
         class="theme-toggle-btn w-9 h-9 rounded-full bg-white/80 dark:bg-stone-900/80 backdrop-blur-md text-stone-700 dark:text-stone-300 flex items-center justify-center shadow-xs hover:scale-105 transition-transform"
         title="Toggle Light/Dark Theme">
         <i data-lucide="moon" class="theme-icon-moon w-4 h-4"></i>
         <i data-lucide="sun" class="theme-icon-sun w-4 h-4 hidden"></i>
       </button>
+
+      <!-- RTL Toggle (Left-Right Arrow Icon) -->
       <button
-        class="rtl-toggle-btn px-2.5 py-1 text-xs font-bold rounded-full bg-white/80 dark:bg-stone-900/80 backdrop-blur-md text-stone-700 dark:text-stone-300 hover:bg-stone-100 transition-colors shadow-xs"
-        title="Toggle RTL Reading Direction">
-        <span class="rtl-status-indicator">RTL</span>
+        class="rtl-toggle-btn w-9 h-9 rounded-full bg-white/80 dark:bg-stone-900/80 backdrop-blur-md text-stone-700 dark:text-stone-300 flex items-center justify-center shadow-xs hover:scale-105 transition-transform"
+        title="Toggle RTL / LTR Reading Direction" aria-label="Toggle RTL / LTR Reading Direction">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+        </svg>
       </button>
     </div>
 
