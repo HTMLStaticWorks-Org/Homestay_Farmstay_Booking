@@ -374,21 +374,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     container.innerHTML = upcoming.map(b => `
       <div class="bg-white dark:bg-[#15221D] rounded-3xl overflow-hidden border border-stone-200 dark:border-stone-800 shadow-md flex flex-col md:flex-row">
-        <div class="md:w-2/5 relative min-h-[200px] overflow-hidden">
+        <div class="md:w-72 lg:w-80 shrink-0 relative min-h-[220px] md:min-h-full overflow-hidden">
           <img src="${b.stayImage}" alt="${b.stayName}" class="w-full h-full object-cover">
-          <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-800 text-white shadow-sm flex items-center gap-1.5">
+          <span class="absolute top-4 left-4 rtl:left-auto rtl:right-4 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-800 text-white shadow-sm flex items-center gap-1.5">
             <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Confirmed Pass
           </span>
         </div>
-        <div class="p-6 md:w-3/5 flex flex-col justify-between">
+        <div class="p-6 md:p-7 flex-1 flex flex-col justify-between space-y-4">
           <div>
             <div class="flex items-center justify-between text-xs text-stone-500 mb-2">
               <span class="font-mono font-bold text-emerald-800 dark:text-emerald-400">#${b.id}</span>
               <span>Booked on ${b.bookedOn}</span>
             </div>
-            <h3 class="font-serif text-2xl font-bold text-stone-900 dark:text-stone-100 mb-1">${b.stayName}</h3>
+            <h3 class="font-serif text-2xl font-bold text-stone-900 dark:text-stone-100 mb-1 leading-tight">${b.stayName}</h3>
             <p class="text-xs text-stone-600 dark:text-stone-400 flex items-center gap-1.5 mb-4">
-              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-emerald-700"></i> ${b.location}
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400 shrink-0"></i> ${b.location}
             </p>
 
             <div class="grid grid-cols-3 gap-3 p-3.5 rounded-2xl bg-stone-50 dark:bg-stone-800/50 border border-stone-100 dark:border-stone-700/60 text-xs mb-4">
@@ -406,7 +406,7 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
             </div>
 
-            <div class="text-xs text-stone-600 dark:text-stone-400 mb-6 space-y-1">
+            <div class="text-xs text-stone-600 dark:text-stone-400 space-y-1">
               <p><strong>Host Contact:</strong> ${b.hostContact}</p>
               <p><strong>Total Paid:</strong> $${b.totalPrice.toFixed(2)} via ${b.paymentMethod}</p>
             </div>
@@ -416,10 +416,10 @@ document.addEventListener('DOMContentLoaded', () => {
             <button class="btn-primary text-xs px-4 py-2" onclick="window.showTripPassModal('${b.id}')">
               <i data-lucide="file-text" class="w-3.5 h-3.5"></i> Trip Pass
             </button>
-            <button class="px-4 py-2 rounded-full border border-stone-200 dark:border-stone-700 text-xs font-semibold hover:bg-stone-100 dark:hover:bg-stone-800 transition-all" onclick="window.showInvoiceModal('${b.id}')">
-              <i data-lucide="printer" class="w-3.5 h-3.5 inline mr-1"></i> Receipt
+            <button class="px-4 py-2 rounded-full border border-stone-200 dark:border-stone-700 text-xs font-semibold hover:bg-stone-100 dark:hover:bg-stone-800 transition-all inline-flex items-center gap-1.5" onclick="window.showInvoiceModal('${b.id}')">
+              <i data-lucide="printer" class="w-3.5 h-3.5"></i> <span>Receipt</span>
             </button>
-            <button class="text-xs font-semibold text-rose-600 dark:text-rose-400 hover:underline ml-auto" onclick="window.cancelTripAction('${b.id}')">
+            <button class="text-xs font-semibold text-rose-600 dark:text-rose-400 hover:underline ms-auto" onclick="window.cancelTripAction('${b.id}')">
               Request Cancellation
             </button>
           </div>
