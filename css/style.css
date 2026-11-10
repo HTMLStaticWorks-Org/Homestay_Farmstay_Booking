@@ -848,3 +848,16 @@ html.dark .gallery-category-btn:not(.active) {
   color: #FFFFFF;
 }
 
+/* Date inputs: hide browser default calendar picker icon so custom Lucide icon doesn't look doubled */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+}
+input[type="date"]::-webkit-inner-spin-button {
+  display: none;
+  -webkit-appearance: none;
+}
+
+
