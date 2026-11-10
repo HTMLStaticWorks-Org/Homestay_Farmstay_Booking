@@ -514,7 +514,7 @@
             </div>
           </div>
 
-          <div class="relative rounded-3xl overflow-hidden aspect-[21/9] min-h-[400px] bg-stone-200 dark:bg-stone-800 border border-stone-300 dark:border-stone-700 shadow-md">
+          <div class="relative rounded-3xl overflow-hidden aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9] min-h-[460px] sm:min-h-[480px] lg:min-h-[400px] bg-stone-200 dark:bg-stone-800 border border-stone-300 dark:border-stone-700 shadow-md">
             <!-- Embedded Google Map -->
             <iframe
               id="global-google-map"
@@ -526,16 +526,16 @@
               referrerpolicy="no-referrer-when-downgrade">
             </iframe>
 
-            <!-- Floating Info Card on bottom-left -->
-            <div class="absolute bottom-4 left-4 z-10 p-4 rounded-2xl bg-white/95 dark:bg-stone-900/95 backdrop-blur-md border border-stone-200/80 dark:border-stone-700/80 shadow-xl max-w-xs sm:max-w-sm pointer-events-auto">
-              <div class="flex items-start gap-3">
-                <div class="w-9 h-9 rounded-xl bg-emerald-700 text-white flex items-center justify-center shrink-0 shadow-xs">
-                  <i data-lucide="map-pin" class="w-5 h-5 text-amber-300"></i>
+            <!-- Floating Info Card on bottom-left / bottom full-width on mobile -->
+            <div class="absolute bottom-3 left-3 right-3 sm:right-auto sm:bottom-4 sm:left-4 z-10 p-3 sm:p-4 rounded-2xl bg-white/95 dark:bg-stone-900/95 backdrop-blur-md border border-stone-200/80 dark:border-stone-700/80 shadow-xl max-w-none sm:max-w-sm pointer-events-auto">
+              <div class="flex items-start gap-2.5 sm:gap-3">
+                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-emerald-700 text-white flex items-center justify-center shrink-0 shadow-xs">
+                  <i data-lucide="map-pin" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-300"></i>
                 </div>
                 <div>
                   <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 block">Verified Sanctuary Hub</span>
-                  <h4 id="map-active-title" class="font-serif font-bold text-stone-900 dark:text-stone-100 text-sm">Willow Creek Heritage Farmhouse</h4>
-                  <p id="map-active-location" class="text-xs text-stone-600 dark:text-stone-400 mt-0.5">Woodstock, Vermont &bull; Coordinates & gate pass issued upon confirmation</p>
+                  <h4 id="map-active-title" class="font-serif font-bold text-stone-900 dark:text-stone-100 text-xs sm:text-sm">Willow Creek Heritage Farmhouse</h4>
+                  <p id="map-active-location" class="text-[11px] sm:text-xs text-stone-600 dark:text-stone-400 mt-0.5 leading-snug">Woodstock, Vermont &bull; Coordinates & gate pass issued upon confirmation</p>
                 </div>
               </div>
             </div>
