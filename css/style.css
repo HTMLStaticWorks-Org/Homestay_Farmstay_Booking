@@ -99,6 +99,17 @@ html[dir="rtl"] .ltr-only {
   direction: ltr;
 }
 
+/* RTL navigation dropdown positioning & alignment */
+html[dir="rtl"] .group .absolute.top-full.left-0 {
+  left: auto !important;
+  right: 0 !important;
+  text-align: right !important;
+}
+html[dir="rtl"] .group .absolute.top-full a {
+  text-align: right !important;
+}
+
+
 /* Typography Utility Classes */
 .font-serif {
   font-family: var(--font-serif);
