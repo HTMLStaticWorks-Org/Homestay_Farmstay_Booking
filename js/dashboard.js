@@ -163,12 +163,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
               </div>
 
-              <div class="flex flex-wrap items-center gap-3">
-                <button class="btn-amber text-xs px-5 py-2.5" onclick="window.showTripPassModal('${next.id}')">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                <button class="btn-amber text-xs px-5 py-2.5 justify-center" onclick="window.showTripPassModal('${next.id}')">
                   <i data-lucide="ticket" class="w-4 h-4"></i> View Trip Pass & Guide
                 </button>
-                <button class="px-4 py-2.5 rounded-full border border-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold transition-all" onclick="window.showInvoiceModal('${next.id}')">
-                  <i data-lucide="receipt" class="w-4 h-4 inline mr-1"></i> Invoice
+                <button class="px-4 py-2.5 rounded-full border border-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold transition-all inline-flex items-center justify-center gap-1.5" onclick="window.showInvoiceModal('${next.id}')">
+                  <i data-lucide="receipt" class="w-4 h-4"></i> <span>Invoice</span>
                 </button>
               </div>
             </div>
@@ -195,22 +195,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (recentTable) {
       recentTable.innerHTML = bookings.slice(0, 4).map(b => `
         <tr class="border-b border-stone-100 dark:border-stone-800 hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors">
-          <td class="py-4 px-4 font-mono text-xs font-bold text-stone-700 dark:text-stone-300">#${b.id}</td>
-          <td class="py-4 px-4">
+          <td class="py-4 px-4 font-mono text-xs font-bold text-stone-700 dark:text-stone-300 whitespace-nowrap">#${b.id}</td>
+          <td class="py-4 px-4 min-w-[200px]">
             <div class="flex items-center gap-3">
               <img src="${b.stayImage}" alt="" class="w-10 h-10 rounded-xl object-cover shrink-0">
-              <div>
-                <span class="font-bold text-xs text-stone-900 dark:text-stone-100 block">${b.stayName}</span>
-                <span class="text-[11px] text-stone-500">${b.location}</span>
+              <div class="min-w-0">
+                <span class="font-bold text-xs text-stone-900 dark:text-stone-100 block leading-snug">${b.stayName}</span>
+                <span class="text-[11px] text-stone-500 block leading-tight mt-0.5">${b.location}</span>
               </div>
             </div>
           </td>
-          <td class="py-4 px-4 text-xs text-stone-600 dark:text-stone-400">${b.checkIn}</td>
-          <td class="py-4 px-4 text-xs font-bold text-stone-900 dark:text-stone-100">$${b.totalPrice.toFixed(2)}</td>
-          <td class="py-4 px-4">
+          <td class="py-4 px-4 text-xs text-stone-600 dark:text-stone-400 whitespace-nowrap">${b.checkIn}</td>
+          <td class="py-4 px-4 text-xs font-bold text-stone-900 dark:text-stone-100 whitespace-nowrap">$${b.totalPrice.toFixed(2)}</td>
+          <td class="py-4 px-4 whitespace-nowrap">
             ${renderStatusBadge(b.status)}
           </td>
-          <td class="py-4 px-4 text-right">
+          <td class="py-4 px-4 text-right whitespace-nowrap">
             <button class="text-xs text-emerald-800 dark:text-emerald-400 hover:underline font-semibold" onclick="window.showInvoiceModal('${b.id}')">
               View
             </button>
