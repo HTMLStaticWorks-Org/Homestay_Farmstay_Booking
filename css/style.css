@@ -109,6 +109,22 @@ html[dir="rtl"] .group .absolute.top-full a {
   text-align: right !important;
 }
 
+/* RTL Dashboard tables alignment */
+html[dir="rtl"] table {
+  text-align: right;
+}
+html[dir="rtl"] th,
+html[dir="rtl"] td {
+  text-align: right;
+}
+html[dir="rtl"] th.text-end,
+html[dir="rtl"] td.text-end,
+html[dir="rtl"] th.text-right,
+html[dir="rtl"] td.text-right {
+  text-align: left !important;
+}
+
+
 
 /* Typography Utility Classes */
 .font-serif {

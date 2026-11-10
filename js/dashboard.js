@@ -195,8 +195,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (recentTable) {
       recentTable.innerHTML = bookings.slice(0, 4).map(b => `
         <tr class="border-b border-stone-100 dark:border-stone-800 hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors">
-          <td class="py-4 px-4 font-mono text-xs font-bold text-stone-700 dark:text-stone-300 whitespace-nowrap">#${b.id}</td>
-          <td class="py-4 px-4 min-w-[200px]">
+          <td class="py-4 px-4 font-mono text-xs font-bold text-stone-700 dark:text-stone-300 whitespace-nowrap text-start">#${b.id}</td>
+          <td class="py-4 px-4 min-w-[200px] text-start">
             <div class="flex items-center gap-3">
               <img src="${b.stayImage}" alt="" class="w-10 h-10 rounded-xl object-cover shrink-0">
               <div class="min-w-0">
@@ -205,12 +205,12 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
             </div>
           </td>
-          <td class="py-4 px-4 text-xs text-stone-600 dark:text-stone-400 whitespace-nowrap">${b.checkIn}</td>
-          <td class="py-4 px-4 text-xs font-bold text-stone-900 dark:text-stone-100 whitespace-nowrap">$${b.totalPrice.toFixed(2)}</td>
-          <td class="py-4 px-4 whitespace-nowrap">
+          <td class="py-4 px-4 text-xs text-stone-600 dark:text-stone-400 whitespace-nowrap text-start">${b.checkIn}</td>
+          <td class="py-4 px-4 text-xs font-bold text-stone-900 dark:text-stone-100 whitespace-nowrap text-start">$${b.totalPrice.toFixed(2)}</td>
+          <td class="py-4 px-4 whitespace-nowrap text-start">
             ${renderStatusBadge(b.status)}
           </td>
-          <td class="py-4 px-4 text-right whitespace-nowrap">
+          <td class="py-4 px-4 text-end whitespace-nowrap">
             <button class="text-xs text-emerald-800 dark:text-emerald-400 hover:underline font-semibold" onclick="window.showInvoiceModal('${b.id}')">
               View
             </button>
@@ -297,8 +297,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     listContainer.innerHTML = bookings.map(b => `
       <tr class="border-b border-stone-100 dark:border-stone-800 hover:bg-stone-50/50 dark:hover:bg-stone-800/30 transition-colors">
-        <td class="py-4 px-4 font-mono text-xs font-bold text-stone-700 dark:text-stone-300 whitespace-nowrap">#${b.id}</td>
-        <td class="py-4 px-4 min-w-[220px]">
+        <td class="py-4 px-4 font-mono text-xs font-bold text-stone-700 dark:text-stone-300 whitespace-nowrap text-start">#${b.id}</td>
+        <td class="py-4 px-4 min-w-[220px] text-start">
           <div class="flex items-center gap-3">
             <img src="${b.stayImage}" alt="" class="w-12 h-12 rounded-xl object-cover shrink-0">
             <div class="min-w-0">
@@ -309,18 +309,18 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           </div>
         </td>
-        <td class="py-4 px-4 text-xs text-stone-600 dark:text-stone-400 whitespace-nowrap min-w-[170px]">
+        <td class="py-4 px-4 text-xs text-stone-600 dark:text-stone-400 whitespace-nowrap min-w-[170px] text-start">
           <span class="block font-semibold text-stone-800 dark:text-stone-200">${b.checkIn} &rarr; ${b.checkOut}</span>
           <span class="text-[11px] text-stone-500 mt-0.5 block">${b.nights} Nights · ${b.guests.adults} Adults${b.guests.children ? `, ${b.guests.children} Children` : ''}</span>
         </td>
-        <td class="py-4 px-4 text-xs font-bold text-stone-900 dark:text-stone-100 whitespace-nowrap">
+        <td class="py-4 px-4 text-xs font-bold text-stone-900 dark:text-stone-100 whitespace-nowrap text-start">
           $${b.totalPrice.toFixed(2)}
           <span class="block text-[11px] font-normal text-stone-500 mt-0.5">${b.paymentMethod}</span>
         </td>
-        <td class="py-4 px-4 whitespace-nowrap">
+        <td class="py-4 px-4 whitespace-nowrap text-start">
           ${renderStatusBadge(b.status)}
         </td>
-        <td class="py-4 px-4 text-right space-x-2 whitespace-nowrap">
+        <td class="py-4 px-4 text-end space-x-2 whitespace-nowrap">
           <button class="px-3 py-1.5 rounded-full text-xs font-semibold bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 text-stone-700 dark:text-stone-300 transition-all" onclick="window.showInvoiceModal('${b.id}')">
             Receipt
           </button>
