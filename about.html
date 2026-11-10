@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | SYLVAN - Luxury Homestays & Farm Retreats</title>
+  <meta name="description" content="Learn about SYLVAN's mission, sustainable rural hospitality approach, and our community of passionate farmstead stewards and heritage hosts.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              DEFAULT: '#254C3A',
+              dark: '#193629',
+              light: '#32634C'
+            },
+            sage: {
+              DEFAULT: '#A8B89A',
+              light: '#E4ECE0'
+            },
+            cream: '#F8F5EC',
+            earth: '#8B6B4A',
+            sand: '#E8DDCA',
+            amberAccent: '#D4A373'
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            display: ['Cormorant Garamond', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#FAF8F2] dark:bg-[#0F1714] text-[#1C2420] dark:text-[#F3F7F5] transition-colors duration-300">
+
+  <!-- ==============================================================
+       HEADER & NAVIGATION
+       ============================================================== -->
+  <header class="sticky top-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 xl:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+        <div class="w-10 h-10 rounded-2xl bg-forest dark:bg-emerald-800 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+          <i data-lucide="trees" class="w-5 h-5 text-amberAccent"></i>
+        </div>
+        <div>
+          <span class="font-serif text-2xl font-bold tracking-tight text-forest dark:text-emerald-300 block leading-none">SYLVAN</span>
+          <span class="text-[10px] uppercase tracking-widest text-earth dark:text-stone-400 font-semibold">Farm & Homestays</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-3.5 xl:gap-6 2xl:gap-7 text-xs xl:text-sm font-semibold text-stone-700 dark:text-stone-200">
+        <div class="relative group py-2">
+          <button class="flex items-center gap-1 hover:text-forest dark:hover:text-emerald-400 transition-colors whitespace-nowrap">
+            Home <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+          </button>
+          <div class="absolute top-full left-0 mt-1 w-44 bg-white dark:bg-[#15221D] rounded-2xl shadow-xl border border-stone-200 dark:border-stone-800 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <a href="index.html" class="block px-4 py-2 text-xs font-semibold hover:bg-stone-50 dark:hover:bg-stone-800">Home 1</a>
+            <a href="home-2.html" class="block px-4 py-2 text-xs font-semibold hover:bg-stone-50 dark:hover:bg-stone-800">Home 2</a>
+          </div>
+        </div>
+
+        <a href="about.html" class="text-forest dark:text-emerald-400 font-bold whitespace-nowrap">About Us</a>
+        <a href="stays.html" class="hover:text-forest dark:hover:text-emerald-400 transition-colors whitespace-nowrap">Stays</a>
+        <a href="activities.html" class="hover:text-forest dark:hover:text-emerald-400 transition-colors whitespace-nowrap">Activities</a>
+        <a href="destinations.html" class="hover:text-forest dark:hover:text-emerald-400 transition-colors whitespace-nowrap">Destinations</a>
+        <a href="gallery.html" class="hover:text-forest dark:hover:text-emerald-400 transition-colors whitespace-nowrap">Gallery</a>
+        <a href="contact.html" class="hover:text-forest dark:hover:text-emerald-400 transition-colors whitespace-nowrap">Contact</a>
+        <a href="dashboard.html" class="hover:text-forest dark:hover:text-emerald-400 transition-colors whitespace-nowrap">Dashboard</a>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="flex items-center gap-2 xl:gap-3 shrink-0">
+        <button class="theme-toggle-btn w-9 h-9 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 flex items-center justify-center hover:scale-105 transition-transform" title="Toggle Light/Dark Theme">
+          <i data-lucide="moon" class="theme-icon-moon w-4 h-4"></i>
+          <i data-lucide="sun" class="theme-icon-sun w-4 h-4 hidden"></i>
+        </button>
+
+        <button class="rtl-toggle-btn w-9 h-9 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 flex items-center justify-center hover:scale-105 transition-transform" title="Toggle RTL / LTR Reading Direction" aria-label="Toggle RTL / LTR Reading Direction">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+          </svg>
+        </button>
+
+        <!-- Primary Auth CTA (Sign Up as Primary CTA) -->
+        <div class="hidden sm:flex items-center">
+          <a href="signup.html" class="btn-primary text-xs px-3.5 xl:px-5 py-2 xl:py-2.5 shadow-sm inline-flex items-center gap-1.5 xl:gap-2 whitespace-nowrap">
+            <i data-lucide="user-plus" class="w-3.5 h-3.5 text-amberAccent"></i>
+            <span>Sign Up</span>
+          </a>
+        </div>
+
+        <button id="mobile-menu-toggle" class="lg:hidden w-10 h-10 rounded-2xl bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-stone-800 dark:text-stone-200">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div id="mobile-drawer" class="fixed inset-0 z-50 bg-stone-950/60 backdrop-blur-sm hidden transition-opacity">
+    <div class="drawer-content fixed top-0 right-0 w-80 max-w-full h-full bg-cream dark:bg-[#15221D] p-6 shadow-2xl flex flex-col justify-between transition-transform duration-300 translate-x-full">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-stone-200 dark:border-stone-800">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-xl bg-forest text-white flex items-center justify-center">
+              <i data-lucide="trees" class="w-4 h-4 text-amberAccent"></i>
+            </div>
+            <span class="font-serif font-bold text-lg text-forest dark:text-emerald-300">SYLVAN</span>
+          </div>
+          <button id="mobile-drawer-close" class="w-8 h-8 rounded-full bg-stone-200 dark:bg-stone-800 flex items-center justify-center">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <nav class="flex flex-col gap-2.5 mt-6 text-sm font-semibold">
+          <!-- Home Submenu matching Desktop -->
+          <div class="py-1">
+            <button type="button"
+              class="w-full flex items-center justify-between py-1.5 hover:text-forest dark:hover:text-emerald-400 transition-colors"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); const icon = this.querySelector('i'); if (icon) icon.classList.toggle('rotate-180');">
+              <span class="flex items-center gap-1.5">Home</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 transition-transform duration-200"></i>
+            </button>
+            <div class="pl-4 flex flex-col gap-1.5 mt-1 border-l-2 border-emerald-700/40">
+              <a href="index.html" class="py-1 text-xs font-semibold hover:text-forest">Home 1</a>
+              <a href="home-2.html" class="py-1 text-xs font-semibold hover:text-forest">Home 2</a>
+            </div>
+          </div>
+
+          <a href="about.html" class="py-1.5 text-forest dark:text-emerald-300 font-bold">About Us</a>
+          <a href="stays.html" class="py-1.5 hover:text-forest dark:hover:text-emerald-400 transition-colors">Stays</a>
+          <a href="activities.html" class="py-1.5 hover:text-forest dark:hover:text-emerald-400 transition-colors">Activities</a>
+          <a href="destinations.html" class="py-1.5 hover:text-forest dark:hover:text-emerald-400 transition-colors">Destinations</a>
+          <a href="gallery.html" class="py-1.5 hover:text-forest dark:hover:text-emerald-400 transition-colors">Gallery</a>
+          <a href="contact.html" class="py-1.5 hover:text-forest dark:hover:text-emerald-400 transition-colors">Contact</a>
+          <a href="dashboard.html" class="py-1.5 hover:text-forest dark:hover:text-emerald-400 transition-colors">Dashboard</a>
+        </nav>
+      </div>
+
+      <div class="pt-6 border-t border-stone-200 dark:border-stone-800 flex flex-col gap-3">
+        <a href="login.html" class="btn-secondary text-xs text-center">Log In</a>
+        <a href="signup.html" class="btn-primary text-xs text-center">Create Free Account</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==============================================================
+         ABOUT US – SECTION 1: ABOUT HERO
+         ============================================================== -->
+    <section data-scroll-anim="fade-down" class="relative py-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=80" alt="Majestic countryside valley and morning sun" class="w-full h-full object-cover filter brightness-[0.70]">
+        <div class="absolute inset-0 bg-stone-950/40"></div>
+      </div>
+
+      <div class="relative z-10 max-w-4xl mx-auto text-center text-white">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-amber-200 text-xs font-semibold mb-6">
+          <i data-lucide="sprout" class="w-3.5 h-3.5 text-amber-300"></i> Founded on Earth Stewarship
+        </span>
+
+        <h1 class="font-serif text-4xl sm:text-6xl font-bold mb-6 leading-tight drop-shadow-md">
+          Cultivating Meaningful Connections<br>
+          <span class="italic font-display font-normal text-amber-100">to the Land and Its People.</span>
+        </h1>
+
+        <p class="text-stone-200 text-base sm:text-lg max-w-2xl mx-auto font-light leading-relaxed drop-shadow-sm">
+          SYLVAN was created to bridge conscious travellers with generational farmers, rural craftsmen, and architectural stewards preserving tranquil landscapes across the globe.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         ABOUT US – SECTION 2: OUR STORY
+         (Platform introduction, mission, vision, and travel philosophy)
+         ============================================================== -->
+    <section data-scroll-anim="split-columns" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Visual Column -->
+        <div class="lg:col-span-6 relative">
+          <div class="rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" alt="Our story origin farmstead in Vermont" class="w-full h-full object-cover">
+          </div>
+          <div class="absolute -bottom-6 -right-6 p-6 rounded-3xl bg-forest text-white shadow-xl max-w-xs hidden sm:block">
+            <span class="font-serif text-3xl font-bold block mb-1">2020</span>
+            <p class="text-xs text-stone-200 leading-relaxed">Born out of a simple desire: to trade screen fatigue for the smell of damp pine needles and fresh sourdough.</p>
+          </div>
+        </div>
+
+        <!-- Narrative Column -->
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs font-bold uppercase tracking-widest text-forest dark:text-emerald-400 block">Our Genesis</span>
+          <h2 class="section-title font-serif font-bold text-stone-900 dark:text-stone-100">
+            A Return to Slower Rhythms & Honest Ground
+          </h2>
+          <p class="text-stone-600 dark:text-stone-300 text-sm leading-relaxed">
+            In an era of relentless hyper-connectivity, our relationship with nature, seasonal cycles, and community has become dangerously thin. We built SYLVAN to serve as an antidote: a trusted hospitality sanctuary where every booking directly supports small-scale organic agriculture and heritage architectural preservation.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+            <div class="p-5 rounded-2xl bg-stone-50 dark:bg-stone-800/50 border border-stone-200/60 dark:border-stone-700/60">
+              <h4 class="font-serif font-bold text-base text-forest dark:text-emerald-400 mb-2">Our Mission</h4>
+              <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
+                To preserve rural communities and historic estates by cultivating low-impact, restorative hospitality that enriches both host and traveller.
+              </p>
+            </div>
+            <div class="p-5 rounded-2xl bg-stone-50 dark:bg-stone-800/50 border border-stone-200/60 dark:border-stone-700/60">
+              <h4 class="font-serif font-bold text-base text-amber-700 dark:text-amber-400 mb-2">Our Vision</h4>
+              <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
+                A world where travel is regenerative, leaving soil richer, orchards tended, and family farmsteads economically resilient for generations to come.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         ABOUT US – SECTION 3: OUR HOSPITALITY APPROACH
+         (Authentic local stays, responsible tourism, and meaningful experiences)
+         ============================================================== -->
+    <section data-scroll-anim="stagger-up" class="py-24 bg-cream dark:bg-[#15221D] px-4 sm:px-6 lg:px-8 border-y border-stone-200/60 dark:border-stone-800/60">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-xs font-bold uppercase tracking-widest text-forest dark:text-emerald-400 block mb-2">Guiding Principles</span>
+          <h2 class="section-title font-serif font-bold text-stone-900 dark:text-stone-100">
+            Our Hospitality Approach
+          </h2>
+          <p class="text-stone-600 dark:text-stone-400 text-sm mt-3">
+            Every SYLVAN retreat adheres to three foundational covenants of conscious hospitality.
+          </p>
+        </div>
+
+        <div class="card-grid-3">
+          <!-- Pillar 1 -->
+          <div class="p-8 rounded-3xl bg-white dark:bg-[#1B2B25] border border-stone-200/80 dark:border-stone-800/80 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 flex items-center justify-center mb-6">
+                <i data-lucide="leaf" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-serif text-xl font-bold mb-3">Responsible Tourism</h3>
+              <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed mb-6">
+                Zero single-use plastics, rainwater collection, composting infrastructure, and solar architecture. We keep our physical footprint light and our ecological respect absolute.
+              </p>
+            </div>
+            <ul class="text-xs text-stone-500 space-y-2 border-t border-stone-100 dark:border-stone-700/60 pt-4">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-700"></i> 100% renewable energy target</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-700"></i> Composting & closed-loop gardens</li>
+            </ul>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="p-8 rounded-3xl bg-white dark:bg-[#1B2B25] border border-stone-200/80 dark:border-stone-800/80 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-400 flex items-center justify-center mb-6">
+                <i data-lucide="utensils" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-serif text-xl font-bold mb-3">Hyper-Local Culinary Roots</h3>
+              <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed mb-6">
+                We believe the soul of a place is tasted. Every breakfast hamper and dining banquet is supplied entirely by the host's garden, neighboring dairies, and village millers.
+              </p>
+            </div>
+            <ul class="text-xs text-stone-500 space-y-2 border-t border-stone-100 dark:border-stone-700/60 pt-4">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-700"></i> Zero-mile organic morning harvests</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-700"></i> Heritage sourdough & raw honey</li>
+            </ul>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="p-8 rounded-3xl bg-white dark:bg-[#1B2B25] border border-stone-200/80 dark:border-stone-800/80 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 flex items-center justify-center mb-6">
+                <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-serif text-xl font-bold mb-3">Generous Human Warmth</h3>
+              <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed mb-6">
+                Never an automated lockbox exchange. Meet the people who steward the land, hear bedtime folklore by the peat stove, and become part of our extended countryside family.
+              </p>
+            </div>
+            <ul class="text-xs text-stone-500 space-y-2 border-t border-stone-100 dark:border-stone-700/60 pt-4">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-700"></i> In-person host orientation</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-700"></i> Hand-drawn local trail maps</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         ABOUT US – SECTION 4: OUR HOST COMMUNITY
+         (Property owners, local farmers, and hospitality partners)
+         ============================================================== -->
+    <section data-scroll-anim="spring-pop" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-forest dark:text-emerald-400 block mb-2">The Custodians</span>
+        <h2 class="section-title font-serif font-bold text-stone-900 dark:text-stone-100">
+          Meet Our Host Community
+        </h2>
+        <p class="text-stone-600 dark:text-stone-400 text-sm mt-3">
+          Behind every stone wall and apple orchard is a family dedicated to authentic rural craft.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Host 1: Eleanor & Marcus Vance -->
+        <div class="bg-white dark:bg-[#15221D] rounded-3xl overflow-hidden border border-stone-200 dark:border-stone-800 shadow-sm flex flex-col justify-between">
+          <div class="relative aspect-square overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Eleanor Vance" class="w-full h-full object-cover object-top">
+            <span class="absolute bottom-3 left-3 px-3 py-1 rounded-full text-[11px] font-semibold bg-stone-900/80 text-white backdrop-blur-md">
+              Vermont, USA
+            </span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <h4 class="font-serif font-bold text-base text-stone-900 dark:text-stone-100">Eleanor Vance</h4>
+              <p class="text-xs text-stone-500 font-medium mb-3">Fourth-generation Orchardist</p>
+              <p class="text-xs text-stone-600 dark:text-stone-400 line-clamp-3 leading-relaxed">
+                "Sharing the quiet rhythm of our apple harvests and warm cider press with tired city families is my life's greatest pleasure."
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-stone-100 dark:border-stone-800 text-[11px] text-emerald-800 dark:text-emerald-400 font-semibold">
+              Host at Willow Creek Farmhouse
+            </div>
+          </div>
+        </div>
+
+        <!-- Host 2: Gianluigi Rossi -->
+        <div class="bg-white dark:bg-[#15221D] rounded-3xl overflow-hidden border border-stone-200 dark:border-stone-800 shadow-sm flex flex-col justify-between">
+          <div class="relative aspect-square overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80" alt="Gianluigi Rossi" class="w-full h-full object-cover object-top">
+            <span class="absolute bottom-3 left-3 px-3 py-1 rounded-full text-[11px] font-semibold bg-stone-900/80 text-white backdrop-blur-md">
+              Tuscany, Italy
+            </span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <h4 class="font-serif font-bold text-base text-stone-900 dark:text-stone-100">Gianluigi Rossi</h4>
+              <p class="text-xs text-stone-500 font-medium mb-3">Sommelier & Olive Oil Producer</p>
+              <p class="text-xs text-stone-600 dark:text-stone-400 line-clamp-3 leading-relaxed">
+                "Our family has pressed olive oil from these same limestone terraces since 1888. Come sit by our outdoor oven and break bread."
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-stone-100 dark:border-stone-800 text-[11px] text-emerald-800 dark:text-emerald-400 font-semibold">
+              Host at Villa Bella Colina
+            </div>
+          </div>
+        </div>
+
+        <!-- Host 3: Claire Pendelton -->
+        <div class="bg-white dark:bg-[#15221D] rounded-3xl overflow-hidden border border-stone-200 dark:border-stone-800 shadow-sm flex flex-col justify-between">
+          <div class="relative aspect-square overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" alt="Claire Pendelton" class="w-full h-full object-cover object-top">
+            <span class="absolute bottom-3 left-3 px-3 py-1 rounded-full text-[11px] font-semibold bg-stone-900/80 text-white backdrop-blur-md">
+              Cotswolds, England
+            </span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <h4 class="font-serif font-bold text-base text-stone-900 dark:text-stone-100">Claire Pendelton</h4>
+              <p class="text-xs text-stone-500 font-medium mb-3">Botanist & Garden Designer</p>
+              <p class="text-xs text-stone-600 dark:text-stone-400 line-clamp-3 leading-relaxed">
+                "Cottage gardens are living poetry. I love watching guests discover the tranquil fragrance of blooming night stock and lavender."
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-stone-100 dark:border-stone-800 text-[11px] text-emerald-800 dark:text-emerald-400 font-semibold">
+              Host at Hazelwood Cottage
+            </div>
+          </div>
+        </div>
+
+        <!-- Host 4: Mateo Ortiz -->
+        <div class="bg-white dark:bg-[#15221D] rounded-3xl overflow-hidden border border-stone-200 dark:border-stone-800 shadow-sm flex flex-col justify-between">
+          <div class="relative aspect-square overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80" alt="Mateo Ortiz" class="w-full h-full object-cover object-top">
+            <span class="absolute bottom-3 left-3 px-3 py-1 rounded-full text-[11px] font-semibold bg-stone-900/80 text-white backdrop-blur-md">
+              Sedona, USA
+            </span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <h4 class="font-serif font-bold text-base text-stone-900 dark:text-stone-100">Mateo Ortiz</h4>
+              <p class="text-xs text-stone-500 font-medium mb-3">Sustainable Architect</p>
+              <p class="text-xs text-stone-600 dark:text-stone-400 line-clamp-3 leading-relaxed">
+                "We built Sol Terra to demonstrate that total environmental harmony enhances, rather than compromises, pure luxury."
+              </p>
+            </div>
+            <div class="pt-3 mt-3 border-t border-stone-100 dark:border-stone-800 text-[11px] text-emerald-800 dark:text-emerald-400 font-semibold">
+              Host at Sol Terra Sanctuary
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         ABOUT US – SECTION 5: WHY TRAVELLERS TRUST US
+         (Achievements, counters, testimonials & booking CTA)
+         ============================================================== -->
+    <section data-scroll-anim="3d-tilt" class="py-24 bg-stone-100/70 dark:bg-[#121D18] px-4 sm:px-6 lg:px-8 border-t border-stone-200/60 dark:border-stone-800/60 anim-values-pillar-rise">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-xs font-bold uppercase tracking-widest text-forest dark:text-emerald-400 block mb-2">Proven Integrity</span>
+          <h2 class="section-title font-serif font-bold text-stone-900 dark:text-stone-100">
+            Why Travellers Trust Us
+          </h2>
+          <p class="text-stone-600 dark:text-stone-400 text-sm mt-3">
+            Over 14,000 nights booked with zero automated host cancellations.
+          </p>
+        </div>
+
+        <!-- 4 Animated Stats -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div class="p-8 rounded-3xl bg-white dark:bg-[#15221D] border border-stone-200 dark:border-stone-800 text-center shadow-sm">
+            <span class="font-serif text-4xl sm:text-5xl font-bold text-forest dark:text-emerald-300 block mb-2">120+</span>
+            <span class="text-xs font-semibold text-stone-500 uppercase tracking-wider">Certified Farmsteads</span>
+          </div>
+          <div class="p-8 rounded-3xl bg-white dark:bg-[#15221D] border border-stone-200 dark:border-stone-800 text-center shadow-sm">
+            <span class="font-serif text-4xl sm:text-5xl font-bold text-forest dark:text-emerald-300 block mb-2">99.4%</span>
+            <span class="text-xs font-semibold text-stone-500 uppercase tracking-wider">Host Reliability</span>
+          </div>
+          <div class="p-8 rounded-3xl bg-white dark:bg-[#15221D] border border-stone-200 dark:border-stone-800 text-center shadow-sm">
+            <span class="font-serif text-4xl sm:text-5xl font-bold text-forest dark:text-emerald-300 block mb-2">100%</span>
+            <span class="text-xs font-semibold text-stone-500 uppercase tracking-wider">Solar & Rainwater Target</span>
+          </div>
+          <div class="p-8 rounded-3xl bg-white dark:bg-[#15221D] border border-stone-200 dark:border-stone-800 text-center shadow-sm">
+            <span class="font-serif text-4xl sm:text-5xl font-bold text-forest dark:text-emerald-300 block mb-2">4.98</span>
+            <span class="text-xs font-semibold text-stone-500 uppercase tracking-wider">Average Guest Review</span>
+          </div>
+        </div>
+
+        <!-- Final CTA Banner inside Section 5 -->
+        <div class="p-10 sm:p-14 rounded-3xl bg-forest text-white shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+          <div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold mb-2">Ready to Experience Slow Living?</h3>
+            <p class="text-xs sm:text-sm text-stone-200 max-w-lg leading-relaxed">
+              Explore our handpicked collection of farmhouses, historic bastides, and timber cottages today.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row items-center gap-3">
+            <a href="stays.html" class="cta-btn-banner btn-amber shadow-md">
+              <i data-lucide="compass" class="w-4 h-4 shrink-0"></i> <span>Find Your Retreat</span>
+            </a>
+            <a href="contact.html#host-enquiry" class="cta-btn-banner border border-white/40 hover:bg-white/10 text-white">
+              <i data-lucide="user-plus" class="w-4 h-4 shrink-0"></i> <span>Become a Host</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==============================================================
+       SHARED FOOTER
+       ============================================================== -->
+  <footer class="bg-stone-900 text-stone-300 pt-20 pb-12 border-t border-stone-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-stone-800">
+        <div class="lg:col-span-2">
+          <a href="index.html" class="flex items-center gap-3 mb-4 group">
+            <div class="w-9 h-9 rounded-2xl bg-emerald-700 text-white flex items-center justify-center">
+              <i data-lucide="trees" class="w-5 h-5 text-amberAccent"></i>
+            </div>
+            <span class="font-serif text-2xl font-bold text-white tracking-tight">SYLVAN</span>
+          </a>
+          <p class="text-xs text-stone-400 max-w-sm leading-relaxed mb-6">
+            A premium homestay and farmstay booking platform helping conscious travellers reconnect with nature through authentic rural architecture, organic agriculture, and generous local hospitality.
+          </p>
+          <div class="flex items-center gap-2.5 text-stone-300">
+            <!-- Instagram (Authentic Radial Gradient Hover) -->
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn social-instagram" aria-label="SYLVAN on Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+            <!-- Facebook (Authentic #1877F2 Blue Hover) -->
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn social-facebook" aria-label="SYLVAN on Facebook" title="Facebook">
+              <svg viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <!-- X / Twitter (Authentic Sleek Black Hover) -->
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn social-x" aria-label="SYLVAN on X (Twitter)" title="X (Twitter)">
+              <svg viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <!-- YouTube (Authentic #FF0000 Red Hover) -->
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn social-youtube" aria-label="SYLVAN on YouTube" title="YouTube">
+              <svg viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
+            <!-- Pinterest (Authentic #E60023 Crimson Hover) -->
+            <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn social-pinterest" aria-label="SYLVAN on Pinterest" title="Pinterest">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-serif font-bold text-sm text-white uppercase tracking-wider mb-4">Explore</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="stays.html" class="hover:text-amber-400 transition-colors">All Stays Catalog</a></li>
+            <li><a href="stays.html?category=Farmhouses" class="hover:text-amber-400 transition-colors">Organic Farmhouses</a></li>
+            <li><a href="stays.html?category=Countryside Cottages" class="hover:text-amber-400 transition-colors">Timber Cottages</a></li>
+            <li><a href="stays.html?category=Eco Retreats" class="hover:text-amber-400 transition-colors">Eco Sanctuaries</a></li>
+            <li><a href="destinations.html" class="hover:text-amber-400 transition-colors">Destinations Guide</a></li>
+            <li><a href="gallery.html" class="hover:text-amber-400 transition-colors">Photo Gallery</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-serif font-bold text-sm text-white uppercase tracking-wider mb-4">Hospitality</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="activities.html" class="hover:text-amber-400 transition-colors">Farm Experiences</a></li>
+            <li><a href="activities.html" class="hover:text-amber-400 transition-colors">Outdoor Adventures</a></li>
+            <li><a href="about.html" class="hover:text-amber-400 transition-colors">Our Philosophy</a></li>
+            <li><a href="contact.html#host-enquiry" class="hover:text-amber-400 transition-colors">Become a Host</a></li>
+            <li><a href="contact.html" class="hover:text-amber-400 transition-colors">Host Support & FAQ</a></li>
+            <li><a href="dashboard.html" class="text-emerald-400 font-semibold hover:underline">Guest Dashboard</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-serif font-bold text-sm text-white uppercase tracking-wider mb-4">The Journal</h4>
+          <p class="text-xs text-stone-400 mb-4 leading-relaxed">
+            Subscribe for seasonal farm harvests, exclusive host retreats, and quiet getaway stories.
+          </p>
+          <form class="newsletter-form space-y-2">
+            <input type="email" placeholder="Your email address" required class="w-full px-4 py-2.5 rounded-2xl bg-stone-800 border border-stone-700 text-xs text-white placeholder-stone-500 focus:outline-hidden focus:border-emerald-500">
+            <button type="submit" class="w-full btn-primary text-xs py-2.5">
+              Subscribe Free
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-4">
+        <p>&copy; 2026 SYLVAN Rural Hospitality Group. All rights reserved.</p>
+        <div class="flex items-center gap-6">
+          <a href="contact.html" class="hover:text-stone-300">Privacy Policy</a>
+          <a href="contact.html" class="hover:text-stone-300">Terms of Service</a>
+          <a href="contact.html" class="hover:text-stone-300">Security</a>
+          <a href="dashboard.html" class="hover:text-stone-300">Account</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

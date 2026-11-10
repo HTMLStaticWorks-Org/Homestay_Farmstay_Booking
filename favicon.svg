@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <defs>
+    <linearGradient id="forestGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#254C3A"/>
+      <stop offset="100%" stop-color="#142C21"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8C382"/>
+      <stop offset="100%" stop-color="#D4A373"/>
+    </linearGradient>
+  </defs>
+  <!-- Rounded Base Seal -->
+  <rect width="48" height="48" rx="14" fill="url(#forestGrad)" stroke="#3A6B53" stroke-width="1.5"/>
+  
+  <!-- Stylized Trees & Farmstead Emblem -->
+  <!-- Tree 1 (Center) -->
+  <polygon points="24,10 16,23 21,23 15,31 33,31 27,23 32,23" fill="url(#goldGrad)" opacity="0.95"/>
+  <rect x="22.5" y="31" width="3" height="7" rx="1" fill="#E8DDCA"/>
+  
+  <!-- Subtle ground hill line -->
+  <path d="M8,38 Q24,34 40,38" stroke="url(#goldGrad)" stroke-width="2" fill="none" stroke-linecap="round"/>
+</svg>
+

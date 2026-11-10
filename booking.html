@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserve Your Stay | SYLVAN Booking & Checkout</title>
+  <meta name="description" content="Secure reservation checkout for verified countryside homestays and luxury farm retreats. Instant confirmation and transparent pricing.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              DEFAULT: '#254C3A',
+              dark: '#193629',
+              light: '#32634C'
+            },
+            sage: {
+              DEFAULT: '#A8B89A',
+              light: '#E4ECE0'
+            },
+            cream: '#F8F5EC',
+            earth: '#8B6B4A',
+            sand: '#E8DDCA',
+            amberAccent: '#D4A373'
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            display: ['Cormorant Garamond', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#FAF8F2] dark:bg-[#0F1714] text-[#1C2420] dark:text-[#F3F7F5] transition-colors duration-300 min-h-screen flex flex-col justify-between">
+
+  <!-- ==============================================================
+       CHECKOUT HEADER
+       ============================================================== -->
+  <header class="glass-nav sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-2xl bg-forest text-white flex items-center justify-center shadow-md">
+          <i data-lucide="trees" class="w-5 h-5 text-amberAccent"></i>
+        </div>
+        <div>
+          <span class="font-serif text-2xl font-bold tracking-tight text-forest dark:text-emerald-300 block leading-none">SYLVAN</span>
+          <span class="text-[10px] uppercase tracking-widest text-earth dark:text-stone-400 font-semibold">Secure Checkout</span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-4">
+        <div class="hidden sm:flex items-center gap-2 text-xs font-semibold text-emerald-800 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-3.5 py-1.5 rounded-full border border-emerald-200 dark:border-emerald-800">
+          <i data-lucide="shield-check" class="w-4 h-4"></i> Bank-Grade 256-Bit SSL Encryption
+        </div>
+
+        <!-- Theme Toggle -->
+        <button class="theme-toggle-btn w-9 h-9 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 flex items-center justify-center hover:scale-105 transition-transform" title="Toggle Light/Dark Theme">
+          <i data-lucide="moon" class="theme-icon-moon w-4 h-4"></i>
+          <i data-lucide="sun" class="theme-icon-sun w-4 h-4 hidden"></i>
+        </button>
+
+        <a href="stays.html" class="text-xs font-bold text-stone-500 hover:text-stone-800 dark:hover:text-stone-200">
+          Exit Checkout
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Wizard Container -->
+  <main id="booking-wizard" class="flex-1 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+    
+    <!-- Wizard Step Progress Indicators -->
+    <div class="mb-10 max-w-3xl mx-auto">
+      <div class="grid grid-cols-5 gap-2 text-center">
+        <!-- Step 1 -->
+        <div class="wizard-step-indicator flex flex-col items-center gap-1.5" data-step="1">
+          <div class="step-circle w-8 h-8 rounded-full bg-amber-500 text-stone-950 flex items-center justify-center font-bold text-xs ring-4 ring-amber-500/20">1</div>
+          <span class="step-label text-[11px] font-bold text-stone-800 dark:text-stone-200">1. Stay</span>
+        </div>
+        <!-- Step 2 -->
+        <div class="wizard-step-indicator flex flex-col items-center gap-1.5 opacity-40" data-step="2">
+          <div class="step-circle w-8 h-8 rounded-full bg-stone-200 dark:bg-stone-700 text-stone-600 dark:text-stone-300 flex items-center justify-center font-bold text-xs">2</div>
+          <span class="step-label text-[11px] font-bold text-stone-500">2. Guest Info</span>
+        </div>
+        <!-- Step 3 -->
+        <div class="wizard-step-indicator flex flex-col items-center gap-1.5 opacity-40" data-step="3">
+          <div class="step-circle w-8 h-8 rounded-full bg-stone-200 dark:bg-stone-700 text-stone-600 dark:text-stone-300 flex items-center justify-center font-bold text-xs">3</div>
+          <span class="step-label text-[11px] font-bold text-stone-500">3. Summary</span>
+        </div>
+        <!-- Step 4 -->
+        <div class="wizard-step-indicator flex flex-col items-center gap-1.5 opacity-40" data-step="4">
+          <div class="step-circle w-8 h-8 rounded-full bg-stone-200 dark:bg-stone-700 text-stone-600 dark:text-stone-300 flex items-center justify-center font-bold text-xs">4</div>
+          <span class="step-label text-[11px] font-bold text-stone-500">4. Payment</span>
+        </div>
+        <!-- Step 5 -->
+        <div class="wizard-step-indicator flex flex-col items-center gap-1.5 opacity-40" data-step="5">
+          <div class="step-circle w-8 h-8 rounded-full bg-stone-200 dark:bg-stone-700 text-stone-600 dark:text-stone-300 flex items-center justify-center font-bold text-xs">5</div>
+          <span class="step-label text-[11px] font-bold text-stone-500">5. Confirmation</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Master Two-Column Checkout Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      
+      <!-- Left Column: Step Panels 1-5 -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <!-- ==============================================================
+             STEP 1: SELECT STAY & DATES
+             ============================================================== -->
+        <div id="step-1-panel" class="step-panel bg-white dark:bg-[#15221D] p-6 sm:p-8 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-md space-y-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-forest dark:text-emerald-400 block mb-1">Step 1 of 5</span>
+            <h2 class="font-serif font-bold text-2xl text-stone-900 dark:text-stone-100">Confirm Stay & Dates</h2>
+            <p class="text-xs text-stone-500 mt-1">Review your selected countryside property and adjust check-in dates.</p>
+          </div>
+
+          <!-- Stay Card Preview -->
+          <div class="flex items-center gap-4 p-4 rounded-2xl bg-stone-50 dark:bg-stone-800/60 border border-stone-200 dark:border-stone-700">
+            <img src="" alt="Booked Property Preview" class="checkout-stay-img w-20 h-20 rounded-xl object-cover shrink-0">
+            <div class="min-w-0">
+              <span class="checkout-stay-location text-xs text-stone-500 block"></span>
+              <h3 class="checkout-stay-title font-serif font-bold text-base text-stone-900 dark:text-stone-100 truncate"></h3>
+              <div class="flex items-center gap-3 text-xs text-stone-600 dark:text-stone-400 mt-1">
+                <span><strong class="checkout-stay-price font-serif text-emerald-800 dark:text-emerald-300 text-sm"></strong> / night</span>
+                <span>&bull;</span>
+                <span class="checkout-stay-rating text-amber-500 font-bold flex items-center gap-1"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Date & Guest Adjustments -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-[11px] font-bold uppercase text-stone-500 mb-1">Check-in Date</label>
+              <input type="date" id="step1-checkin" class="w-full p-3 rounded-2xl bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-xs font-bold focus:outline-hidden">
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold uppercase text-stone-500 mb-1">Check-out Date</label>
+              <input type="date" id="step1-checkout" class="w-full p-3 rounded-2xl bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-xs font-bold focus:outline-hidden">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-[11px] font-bold uppercase text-stone-500 mb-1">Adults (13+ yrs)</label>
+              <select id="step1-adults" class="w-full p-3 rounded-2xl bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-xs font-bold focus:outline-hidden cursor-pointer">
+                <option value="1">1 Adult</option>
+                <option value="2">2 Adults</option>
+                <option value="4">4 Adults</option>
+                <option value="6">6 Adults</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold uppercase text-stone-500 mb-1">Children (0-12 yrs)</label>
+              <select id="step1-children" class="w-full p-3 rounded-2xl bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-xs font-bold focus:outline-hidden cursor-pointer">
+                <option value="0">0 Children</option>
+                <option value="1">1 Child</option>
+                <option value="2">2 Children</option>
+                <option value="3">3 Children</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="pt-4 flex justify-end">
+            <button class="btn-primary text-xs px-6 py-3" data-next-step>
+              Continue to Guest Details &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- ==============================================================
+             STEP 2: GUEST INFORMATION
+             ============================================================== -->
+        <div id="step-2-panel" class="step-panel hidden bg-white dark:bg-[#15221D] p-6 sm:p-8 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-md space-y-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-forest dark:text-emerald-400 block mb-1">Step 2 of 5</span>
+            <h2 class="font-serif font-bold text-2xl text-stone-900 dark:text-stone-100">Guest Information</h2>
+            <p class="text-xs text-stone-500 mt-1">Host needs your contact details to provide gate codes and arrival greetings.</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-[11px] font-bold uppercase text-stone-500 mb-1">First Name *</label>
+              <input type="text" id="guest-fname" required value="Julian" class="w-full p-3 rounded-2xl bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-xs font-medium focus:outline-hidden">
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold uppercase text-stone-500 mb-1">Last Name *</label>
+              <input type="text" id="guest-lname" required value="Sterling" class="w-full p-3 rounded-2xl bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-xs font-medium focus:outline-hidden">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-[11px] font-bold uppercase text-stone-500 mb-1">Email Address *</label>
+              <input type="email" id="guest-email" required value="julian.sterling@example.com" class="w-full p-3 rounded-2xl bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-xs font-medium focus:outline-hidden">
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold uppercase text-stone-500 mb-1">Mobile Phone *</label>
+              <input type="tel" id="guest-phone" required value="+1 (802) 555-0194" class="w-full p-3 rounded-2xl bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-xs font-medium focus:outline-hidden">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-[11px] font-bold uppercase text-stone-500 mb-1">Special Requests / Dietary Notes (Optional)</label>
+            <textarea id="guest-requests" rows="3" placeholder="e.g. Arriving late around 7:30 PM, vegetarian breakfast basket, traveling with small lab retriever..." class="w-full p-3 rounded-2xl bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-xs focus:outline-hidden"></textarea>
+          </div>
+
+          <div class="pt-4 flex items-center justify-between border-t border-stone-100 dark:border-stone-800">
+            <button class="btn-secondary text-xs px-5 py-2.5" data-prev-step>
+              &larr; Back
+            </button>
+            <button class="btn-primary text-xs px-6 py-3" data-next-step>
+              Review Booking Summary &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- ==============================================================
+             STEP 3: BOOKING SUMMARY & EXTRAS
+             ============================================================== -->
+        <div id="step-3-panel" class="step-panel hidden bg-white dark:bg-[#15221D] p-6 sm:p-8 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-md space-y-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-forest dark:text-emerald-400 block mb-1">Step 3 of 5</span>
+            <h2 class="font-serif font-bold text-2xl text-stone-900 dark:text-stone-100">Review Summary & Enhancements</h2>
+            <p class="text-xs text-stone-500 mt-1">Select optional farmstead add-ons or enter a countryside promotion code.</p>
+          </div>
+
+          <!-- Add-ons Selection -->
+          <div class="space-y-3">
+            <h3 class="font-serif font-bold text-sm text-stone-800 dark:text-stone-200">Optional Countryside Enhancements</h3>
+            
+            <label class="flex items-center justify-between p-4 rounded-2xl border border-stone-200 dark:border-stone-700 hover:bg-stone-50 dark:hover:bg-stone-800/40 cursor-pointer transition-colors">
+              <div class="flex items-center gap-3">
+                <input type="checkbox" class="addon-checkbox accent-emerald-800 rounded" data-addon="breakfastHamper">
+                <div>
+                  <h4 class="font-bold text-xs">Daily Farm Breakfast Basket</h4>
+                  <p class="text-[11px] text-stone-500">Fresh sourdough, orchard jams, raw honey & buttermilk</p>
+                </div>
+              </div>
+              <span class="font-bold text-xs text-emerald-800 dark:text-emerald-400">+$45</span>
+            </label>
+
+            <label class="flex items-center justify-between p-4 rounded-2xl border border-stone-200 dark:border-stone-700 hover:bg-stone-50 dark:hover:bg-stone-800/40 cursor-pointer transition-colors">
+              <div class="flex items-center gap-3">
+                <input type="checkbox" class="addon-checkbox accent-emerald-800 rounded" data-addon="orchardTasting">
+                <div>
+                  <h4 class="font-bold text-xs">Private Host Cider & Cheese Tasting</h4>
+                  <p class="text-[11px] text-stone-500">Curated private 1-hour tasting on host's garden veranda</p>
+                </div>
+              </div>
+              <span class="font-bold text-xs text-emerald-800 dark:text-emerald-400">+$60</span>
+            </label>
+
+            <label class="flex items-center justify-between p-4 rounded-2xl border border-stone-200 dark:border-stone-700 hover:bg-stone-50 dark:hover:bg-stone-800/40 cursor-pointer transition-colors">
+              <div class="flex items-center gap-3">
+                <input type="checkbox" class="addon-checkbox accent-emerald-800 rounded" data-addon="firewoodBundle">
+                <div>
+                  <h4 class="font-bold text-xs">Extra Seasoned Birch Firewood Bundle</h4>
+                  <p class="text-[11px] text-stone-500">2 dry crates of birch logs and organic pine firestarters</p>
+                </div>
+              </div>
+              <span class="font-bold text-xs text-emerald-800 dark:text-emerald-400">+$25</span>
+            </label>
+          </div>
+
+          <!-- Coupon Code Promo -->
+          <div class="p-4 rounded-2xl bg-stone-50 dark:bg-stone-800/60 border border-stone-200 dark:border-stone-700 space-y-2">
+            <label class="block text-[11px] font-bold uppercase text-stone-500">Promotion Code</label>
+            <form id="coupon-form" class="flex gap-2">
+              <input type="text" id="coupon-input" placeholder="Try 'NATURE10' for 10% off" class="flex-1 p-2.5 rounded-xl bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-700 text-xs uppercase font-mono font-bold focus:outline-hidden">
+              <button type="submit" class="btn-secondary text-xs px-4 py-2.5 shrink-0">
+                Apply Code
+              </button>
+            </form>
+          </div>
+
+          <div class="pt-4 flex items-center justify-between border-t border-stone-100 dark:border-stone-800">
+            <button class="btn-secondary text-xs px-5 py-2.5" data-prev-step>
+              &larr; Back
+            </button>
+            <button class="btn-primary text-xs px-6 py-3" data-next-step>
+              Proceed to Payment &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- ==============================================================
+             STEP 4: PAYMENT SELECTION
+             ============================================================== -->
+        <div id="step-4-panel" class="step-panel hidden bg-white dark:bg-[#15221D] p-6 sm:p-8 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-md space-y-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-forest dark:text-emerald-400 block mb-1">Step 4 of 5</span>
+            <h2 class="font-serif font-bold text-2xl text-stone-900 dark:text-stone-100">Select Payment Method</h2>
+            <p class="text-xs text-stone-500 mt-1">Simulated bank-grade checkout. No charges applied until final confirmation.</p>
+          </div>
+
+          <!-- Payment Tabs -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <button type="button" class="payment-tab-btn p-3 rounded-2xl border-2 border-emerald-800 bg-emerald-50/50 dark:bg-emerald-950/30 text-emerald-900 dark:text-emerald-300 flex flex-col items-center gap-1.5 transition-all" data-method="card">
+              <i data-lucide="credit-card" class="w-5 h-5"></i>
+              <span class="text-xs font-bold">Credit Card</span>
+            </button>
+            <button type="button" class="payment-tab-btn p-3 rounded-2xl border border-stone-200 dark:border-stone-700 flex flex-col items-center gap-1.5 transition-all text-stone-600 dark:text-stone-300" data-method="upi">
+              <i data-lucide="qr-code" class="w-5 h-5"></i>
+              <span class="text-xs font-bold">UPI / QR</span>
+            </button>
+            <button type="button" class="payment-tab-btn p-3 rounded-2xl border border-stone-200 dark:border-stone-700 flex flex-col items-center gap-1.5 transition-all text-stone-600 dark:text-stone-300" data-method="netbanking">
+              <i data-lucide="building" class="w-5 h-5"></i>
+              <span class="text-xs font-bold">Net Banking</span>
+            </button>
+          </div>
+
+          <!-- Card Panel -->
+          <div id="payment-card-panel" class="payment-panel space-y-4">
+            <div>
+              <label class="block text-[11px] font-bold uppercase text-stone-500 mb-1">Card Number</label>
+              <div class="relative">
+                <input type="text" id="card-number-input" maxlength="19" value="4242 4242 4242 4242" class="w-full p-3 rounded-2xl bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-xs font-mono font-bold focus:outline-hidden">
+                <div class="absolute right-3.5 top-1/2 -translate-y-1/2 flex gap-1">
+                  <span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-blue-100 text-blue-800">VISA</span>
+                  <span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-amber-100 text-amber-800">MC</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-[11px] font-bold uppercase text-stone-500 mb-1">Expiry Date</label>
+                <input type="text" maxlength="5" value="12/28" placeholder="MM/YY" class="w-full p-3 rounded-2xl bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-xs font-mono font-bold focus:outline-hidden">
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold uppercase text-stone-500 mb-1">CVV / CVC</label>
+                <input type="password" maxlength="4" value="842" class="w-full p-3 rounded-2xl bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-xs font-mono font-bold focus:outline-hidden">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-bold uppercase text-stone-500 mb-1">Name on Card</label>
+              <input type="text" value="Julian Sterling" class="w-full p-3 rounded-2xl bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-xs font-medium focus:outline-hidden">
+            </div>
+          </div>
+
+          <!-- UPI Panel -->
+          <div id="payment-upi-panel" class="payment-panel hidden space-y-4 text-center">
+            <div class="p-4 bg-stone-50 dark:bg-stone-800 rounded-2xl border border-stone-200 dark:border-stone-700 inline-block mx-auto">
+              <!-- Simulated QR -->
+              <div class="w-40 h-40 bg-white p-2 rounded-xl border border-stone-300 mx-auto flex flex-col items-center justify-center">
+                <i data-lucide="qr-code" class="w-28 h-28 text-stone-900"></i>
+                <span class="text-[9px] font-mono text-stone-500 mt-1">Scan via any UPI App</span>
+              </div>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold uppercase text-stone-500 mb-1">Or Enter Virtual Payment Address (VPA)</label>
+              <input type="text" placeholder="username@okhdfcbank" class="max-w-xs mx-auto w-full p-2.5 rounded-xl bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-xs text-center focus:outline-hidden">
+            </div>
+          </div>
+
+          <!-- Net Banking Panel -->
+          <div id="payment-netbanking-panel" class="payment-panel hidden space-y-4">
+            <label class="block text-[11px] font-bold uppercase text-stone-500 mb-1">Select Bank</label>
+            <select class="w-full p-3 rounded-2xl bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-xs font-semibold focus:outline-hidden cursor-pointer">
+              <option>Barclays Bank</option>
+              <option>Chase / J.P. Morgan</option>
+              <option>Bank of America</option>
+              <option>Wells Fargo</option>
+              <option>HDFC Bank</option>
+              <option>State Bank of India</option>
+              <option>BNP Paribas</option>
+            </select>
+          </div>
+
+          <!-- Terms Agreement -->
+          <div class="flex items-start gap-2 pt-2 text-xs text-stone-600 dark:text-stone-400">
+            <input type="checkbox" id="agree-terms" checked class="accent-forest mt-0.5 rounded">
+            <label for="agree-terms" class="leading-relaxed">
+              I agree to the SYLVAN Countryside Host Agreement, quiet hours policy, and cancellation terms.
+            </label>
+          </div>
+
+          <div class="pt-4 flex items-center justify-between border-t border-stone-100 dark:border-stone-800">
+            <button class="btn-secondary text-xs px-5 py-2.5" data-prev-step>
+              &larr; Back
+            </button>
+            <button id="btn-confirm-payment" class="btn-primary text-xs px-7 py-3.5 shadow-lg" data-next-step>
+              <i data-lucide="lock" class="w-4 h-4"></i> Complete Reservation
+            </button>
+          </div>
+        </div>
+
+        <!-- ==============================================================
+             STEP 5: CONFIRMATION SCREEN
+             ============================================================== -->
+        <div id="step-5-panel" class="step-panel hidden bg-white dark:bg-[#15221D] p-8 sm:p-10 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-2xl text-center space-y-6">
+          <div class="w-16 h-16 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 flex items-center justify-center mx-auto shadow-md">
+            <i data-lucide="check-circle-2" class="w-8 h-8"></i>
+          </div>
+
+          <div class="space-y-1">
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">Reservation Confirmed</span>
+            <h2 class="font-serif font-bold text-3xl text-stone-900 dark:text-stone-100">Your Countryside Escape is Booked!</h2>
+            <p class="text-xs text-stone-500">Booking Reference: <strong id="conf-booking-ref" class="font-mono text-stone-900 dark:text-stone-100 text-sm">#SYL-84920</strong></p>
+          </div>
+
+          <!-- Confirmation Breakdown Box -->
+          <div class="p-6 rounded-2xl bg-stone-50 dark:bg-stone-800/60 border border-stone-200 dark:border-stone-700 text-left text-xs space-y-2.5">
+            <div class="flex justify-between font-bold text-sm">
+              <span id="conf-stay-name">Willow Creek Heritage Farmhouse</span>
+              <span id="conf-total-paid" class="text-emerald-800 dark:text-emerald-300">$1,433.00</span>
+            </div>
+            <div class="flex justify-between text-stone-500">
+              <span>Dates:</span>
+              <span id="conf-dates" class="font-semibold text-stone-800 dark:text-stone-200">2026-11-20 to 2026-11-24</span>
+            </div>
+            <div class="flex justify-between text-stone-500">
+              <span>Guest Count:</span>
+              <span id="conf-guests" class="font-semibold text-stone-800 dark:text-stone-200">2 Adults</span>
+            </div>
+            <div class="flex justify-between text-stone-500">
+              <span>Primary Guest:</span>
+              <span id="conf-guest-name" class="font-semibold text-stone-800 dark:text-stone-200">Julian Sterling</span>
+            </div>
+            <div class="flex justify-between text-stone-500">
+              <span>Confirmation Email:</span>
+              <span id="conf-guest-email" class="font-semibold text-stone-800 dark:text-stone-200">julian@example.com</span>
+            </div>
+          </div>
+
+          <p class="text-xs text-stone-500">
+            Host Eleanor has received your reservation and will send gate codes and driving directions 48 hours prior to arrival.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+            <button id="btn-print-receipt" class="cta-btn-banner btn-secondary">
+              <i data-lucide="printer" class="w-4 h-4 shrink-0"></i> <span>Download Receipt</span>
+            </button>
+            <a href="dashboard.html#upcoming" class="cta-btn-banner btn-primary shadow-md">
+              <i data-lucide="layout-dashboard" class="w-4 h-4 shrink-0"></i> <span>Guest Dashboard</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Sticky Live Booking Summary Sidebar -->
+      <aside class="lg:col-span-5 sticky top-28 bg-white dark:bg-[#15221D] p-6 sm:p-7 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-xl space-y-6">
+        <h3 class="font-serif font-bold text-lg text-stone-900 dark:text-stone-100 pb-3 border-b border-stone-100 dark:border-stone-800">
+          Reservation Summary
+        </h3>
+
+        <!-- Stay Preview -->
+        <div class="flex items-center gap-3">
+          <img src="" alt="Booked Property Preview" class="checkout-stay-img w-16 h-16 rounded-xl object-cover shrink-0 shadow-xs">
+          <div>
+            <h4 class="checkout-stay-title font-serif font-bold text-sm text-stone-900 dark:text-stone-100"></h4>
+            <span class="checkout-stay-location text-xs text-stone-500 flex items-center gap-1"></span>
+          </div>
+        </div>
+
+        <!-- Cost Breakdown List -->
+        <div class="space-y-2 text-xs text-stone-600 dark:text-stone-400">
+          <div class="flex justify-between">
+            <span id="summary-nights">4 Nights</span>
+            <span id="summary-base-rate" class="font-semibold text-stone-800 dark:text-stone-200">$1,140</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Cleaning & Linen Fee</span>
+            <span id="summary-cleaning" class="font-semibold text-stone-800 dark:text-stone-200">$65</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Sylvan Service Fee (12%)</span>
+            <span id="summary-service" class="font-semibold text-stone-800 dark:text-stone-200">$137</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Local Eco Tourism Taxes (8%)</span>
+            <span id="summary-taxes" class="font-semibold text-stone-800 dark:text-stone-200">$91</span>
+          </div>
+
+          <!-- Addons Row (Hidden if zero) -->
+          <div id="summary-extras-row" class="flex justify-between text-amber-700 dark:text-amber-400 hidden">
+            <span>Enhancements</span>
+            <span id="summary-extras-amount" class="font-semibold">+$0</span>
+          </div>
+
+          <!-- Discount Row (Hidden if zero) -->
+          <div id="summary-discount-row" class="flex justify-between text-emerald-700 dark:text-emerald-400 font-bold hidden">
+            <span>Welcome Promo</span>
+            <span id="summary-discount-amount">-$0</span>
+          </div>
+
+          <!-- Grand Total -->
+          <div class="pt-3 border-t border-stone-200 dark:border-stone-700 flex justify-between text-base font-bold text-stone-900 dark:text-stone-100">
+            <span>Total (USD)</span>
+            <span id="summary-final-total" class="font-serif text-xl text-emerald-950 dark:text-emerald-300">$1,433.00</span>
+          </div>
+        </div>
+
+        <div class="p-3 bg-stone-50 dark:bg-stone-800/50 rounded-2xl text-[11px] text-stone-500 space-y-1">
+          <p class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-700"></i> Free cancellation within 48 hours</p>
+          <p class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-700"></i> Best rate guaranteed direct booking</p>
+          <p class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-700"></i> Fresh farm breakfast included daily</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Checkout Minimal Footer -->
+  <footer class="py-6 border-t border-stone-200 dark:border-stone-800 text-center text-xs text-stone-500">
+    <p>&copy; 2026 SYLVAN Countryside Hospitality Group. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/booking.js"></script>
+</body>
+</html>

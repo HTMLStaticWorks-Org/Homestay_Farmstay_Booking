@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest Login | SYLVAN Countryside & Farm Retreats</title>
+  <meta name="description"
+    content="Sign in to your SYLVAN guest portal to manage reservations, view upcoming trips, and access saved retreats.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              DEFAULT: '#254C3A',
+              dark: '#193629',
+              light: '#32634C'
+            },
+            sage: {
+              DEFAULT: '#A8B89A',
+              light: '#E4ECE0'
+            },
+            cream: '#F8F5EC',
+            earth: '#8B6B4A',
+            sand: '#E8DDCA',
+            amberAccent: '#D4A373'
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            display: ['Cormorant Garamond', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body
+  class="bg-[#FAF8F2] dark:bg-[#0F1714] text-[#1C2420] dark:text-[#F3F7F5] min-h-screen flex flex-col items-center justify-center py-12 sm:py-16 px-4 sm:px-6 transition-colors duration-300 relative overflow-x-hidden overflow-y-auto">
+
+  <!-- Background Ambience -->
+  <div class="fixed inset-0 pointer-events-none opacity-40 dark:opacity-20 z-0">
+    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1800&q=80"
+      alt="Cozy countryside lodge interior with glowing fireplace" class="w-full h-full object-cover filter blur-md">
+  </div>
+
+  <!-- Card & Utilities Container -->
+  <div class="relative z-10 w-full max-w-md my-auto flex flex-col">
+    <!-- Top Utilities Bar (Positioned above card to prevent overlapping on mobile/tablet) -->
+    <div class="flex items-center justify-end gap-2 mb-3 px-1">
+      <button
+        class="theme-toggle-btn w-9 h-9 rounded-full bg-white/80 dark:bg-stone-900/80 backdrop-blur-md text-stone-700 dark:text-stone-300 flex items-center justify-center shadow-xs hover:scale-105 transition-transform"
+        title="Toggle Light/Dark Theme">
+        <i data-lucide="moon" class="theme-icon-moon w-4 h-4"></i>
+        <i data-lucide="sun" class="theme-icon-sun w-4 h-4 hidden"></i>
+      </button>
+      <button
+        class="rtl-toggle-btn px-2.5 py-1 text-xs font-bold rounded-full bg-white/80 dark:bg-stone-900/80 backdrop-blur-md text-stone-700 dark:text-stone-300 hover:bg-stone-100 transition-colors shadow-xs"
+        title="Toggle RTL Reading Direction">
+        <span class="rtl-status-indicator">RTL</span>
+      </button>
+    </div>
+
+    <!-- Centered Login Card -->
+    <div
+      class="w-full bg-white dark:bg-[#15221D] p-6 sm:p-8 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-2xl space-y-6">
+    <!-- Logo & Header -->
+    <div class="text-center space-y-2">
+      <a href="index.html" class="inline-flex items-center gap-2.5 justify-center mb-1 group">
+        <div
+          class="w-10 h-10 rounded-2xl bg-forest dark:bg-emerald-800 text-white flex items-center justify-center shadow-md">
+          <i data-lucide="trees" class="w-5 h-5 text-amberAccent"></i>
+        </div>
+        <span class="font-serif text-2xl font-bold tracking-tight text-forest dark:text-emerald-300">SYLVAN</span>
+      </a>
+      <h1 class="font-serif text-2xl font-bold text-stone-900 dark:text-stone-100">Welcome Back</h1>
+      <p class="text-xs text-stone-500">Sign in to your guest account to manage your countryside bookings.</p>
+    </div>
+
+    <!-- Login Form -->
+    <form id="login-form" class="space-y-4">
+      <div>
+        <label
+          class="block text-[11px] font-bold uppercase tracking-wider text-stone-600 dark:text-stone-400 mb-1">Email
+          Address</label>
+        <div class="relative">
+          <i data-lucide="mail" class="w-4 h-4 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+          <input type="email" id="login-email" required value="julian.sterling@example.com"
+            placeholder="name@example.com"
+            class="w-full pl-10 pr-4 py-3 rounded-2xl bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-xs focus:outline-hidden focus:border-forest dark:focus:border-emerald-500 text-stone-800 dark:text-stone-200 font-medium">
+        </div>
+      </div>
+
+      <div>
+        <div class="flex items-center justify-between mb-1">
+          <label
+            class="text-[11px] font-bold uppercase tracking-wider text-stone-600 dark:text-stone-400">Password</label>
+          <a href="#" onclick="alert('Password reset link sent to your registered email.')"
+            class="text-[11px] text-emerald-800 dark:text-emerald-400 hover:underline font-semibold">Forgot
+            Password?</a>
+        </div>
+        <div class="relative">
+          <i data-lucide="lock" class="w-4 h-4 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+          <input type="password" id="login-password" required value="password123" placeholder="••••••••"
+            class="w-full pl-10 pr-10 py-3 rounded-2xl bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-xs focus:outline-hidden focus:border-forest dark:focus:border-emerald-500 text-stone-800 dark:text-stone-200 font-medium">
+          <button type="button" id="toggle-pwd-btn"
+            class="absolute right-3.5 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600">
+            <i data-lucide="eye" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between text-xs text-stone-600 dark:text-stone-400 pt-1">
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input type="checkbox" checked class="accent-forest rounded">
+          <span>Remember me for 30 days</span>
+        </label>
+      </div>
+
+      <button type="submit" class="w-full btn-primary text-sm py-3.5 shadow-md">
+        <i data-lucide="log-in" class="w-4 h-4"></i> Sign In to Account
+      </button>
+    </form>
+
+    <!-- Social Authentication Options -->
+    <div class="space-y-3 pt-2">
+      <div class="flex items-center my-1">
+        <div class="flex-grow border-t border-stone-200 dark:border-stone-800"></div>
+        <span class="px-3 text-[11px] uppercase tracking-wider text-stone-400 shrink-0 font-medium">Or continue with</span>
+        <div class="flex-grow border-t border-stone-200 dark:border-stone-800"></div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-3">
+        <!-- Google -->
+        <button type="button" onclick="handleSocialLogin('Google')"
+          class="flex items-center justify-center p-3 rounded-2xl border border-stone-200 dark:border-stone-700 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors shadow-2xs"
+          title="Continue with Google" aria-label="Continue with Google">
+          <svg class="w-4 h-4" viewBox="0 0 24 24">
+            <path fill="#4285F4"
+              d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z" />
+            <path fill="#34A853"
+              d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z" />
+            <path fill="#FBBC05"
+              d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 10.04 0 12s.45 3.82 1.25 5.42l4.03-3.15z" />
+            <path fill="#EA4335"
+              d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z" />
+          </svg>
+        </button>
+
+        <!-- Apple -->
+        <button type="button" onclick="handleSocialLogin('Apple')"
+          class="flex items-center justify-center p-3 rounded-2xl border border-stone-200 dark:border-stone-700 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors shadow-2xs"
+          title="Continue with Apple" aria-label="Continue with Apple">
+          <svg class="w-4 h-4 fill-stone-900 dark:fill-white" viewBox="0 0 24 24">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.84c.62-.76 1.04-1.81.93-2.84-.9.04-1.99.6-2.64 1.36-.57.65-1.07 1.72-.93 2.73 1 .08 2.02-.49 2.64-1.25z"/>
+          </svg>
+        </button>
+
+        <!-- Facebook -->
+        <button type="button" onclick="handleSocialLogin('Facebook')"
+          class="flex items-center justify-center p-3 rounded-2xl border border-stone-200 dark:border-stone-700 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors shadow-2xs"
+          title="Continue with Facebook" aria-label="Continue with Facebook">
+          <svg class="w-4 h-4 fill-[#1877F2]" viewBox="0 0 24 24">
+            <path
+              d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Sign up navigation link -->
+    <div class="text-center text-xs text-stone-500 pt-2 border-t border-stone-100 dark:border-stone-800">
+      Don’t have a guest account yet?
+      <a href="signup.html" class="font-bold text-emerald-800 dark:text-emerald-400 hover:underline ml-1">Create
+        Account</a>
+    </div>
+  </div>
+</div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Toggle Password Visibility
+    const toggleBtn = document.getElementById('toggle-pwd-btn');
+    const pwdInput = document.getElementById('login-password');
+    if (toggleBtn && pwdInput) {
+      toggleBtn.addEventListener('click', () => {
+        const isPwd = pwdInput.type === 'password';
+        pwdInput.type = isPwd ? 'text' : 'password';
+        toggleBtn.innerHTML = isPwd ? '<i data-lucide="eye-off" class="w-4 h-4"></i>' : '<i data-lucide="eye" class="w-4 h-4"></i>';
+        if (window.lucide) lucide.createIcons();
+      });
+    }
+
+    // Login Form Submit
+    document.getElementById('login-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      SylvanToast.show('Welcome Back, Julian', 'Signing you into the guest dashboard...', 'success');
+      setTimeout(() => {
+        window.location.href = 'dashboard.html';
+      }, 700);
+    });
+
+    window.handleSocialLogin = function (provider) {
+      SylvanToast.show(`${provider} Connected`, `Signing in through verified ${provider} credentials...`, 'info');
+      setTimeout(() => {
+        window.location.href = 'dashboard.html';
+      }, 800);
+    };
+  </script>
+</body>
+
+</html>

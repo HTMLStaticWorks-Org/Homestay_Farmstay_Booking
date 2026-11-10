@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery & Rural Landscapes | SYLVAN</title>
+  <meta name="description"
+    content="Explore our visual anthology of authentic countryside farmhouses, stone cottages, rustic interiors, and nature retreats.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              DEFAULT: '#254C3A',
+              dark: '#193629',
+              light: '#32634C'
+            },
+            sage: {
+              DEFAULT: '#A8B89A',
+              light: '#E4ECE0'
+            },
+            cream: '#F8F5EC',
+            earth: '#8B6B4A',
+            sand: '#E8DDCA',
+            amberAccent: '#D4A373'
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            display: ['Cormorant Garamond', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-[#FAF8F2] dark:bg-[#0F1714] text-[#1C2420] dark:text-[#F3F7F5] transition-colors duration-300">
+
+  <!-- ==============================================================
+       HEADER & NAVIGATION
+       ============================================================== -->
+  <header class="sticky top-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 xl:px-8 h-20 flex items-center justify-between gap-4">
+      <a href="index.html" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+        <div
+          class="w-10 h-10 rounded-2xl bg-forest dark:bg-emerald-800 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+          <i data-lucide="trees" class="w-5 h-5 text-amberAccent"></i>
+        </div>
+        <div>
+          <span
+            class="font-serif text-2xl font-bold tracking-tight text-forest dark:text-emerald-300 block leading-none">SYLVAN</span>
+          <span class="text-[10px] uppercase tracking-widest text-earth dark:text-stone-400 font-semibold">Farm &
+            Homestays</span>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-3.5 xl:gap-6 2xl:gap-7 text-xs xl:text-sm font-semibold text-stone-700 dark:text-stone-200">
+        <div class="relative group py-2">
+          <button class="flex items-center gap-1 hover:text-forest dark:hover:text-emerald-400 transition-colors whitespace-nowrap">
+            Home <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+          </button>
+          <div
+            class="absolute top-full left-0 mt-1 w-44 bg-white dark:bg-[#15221D] rounded-2xl shadow-xl border border-stone-200 dark:border-stone-800 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <a href="index.html"
+              class="block px-4 py-2 text-xs font-semibold hover:bg-stone-50 dark:hover:bg-stone-800">Home 1</a>
+            <a href="home-2.html"
+              class="block px-4 py-2 text-xs font-semibold hover:bg-stone-50 dark:hover:bg-stone-800">Home 2</a>
+          </div>
+        </div>
+
+        <a href="about.html" class="hover:text-forest dark:hover:text-emerald-400 transition-colors whitespace-nowrap">About Us</a>
+        <a href="stays.html" class="hover:text-forest dark:hover:text-emerald-400 transition-colors whitespace-nowrap">Stays</a>
+        <a href="activities.html" class="hover:text-forest dark:hover:text-emerald-400 transition-colors whitespace-nowrap">Activities</a>
+        <a href="destinations.html"
+          class="hover:text-forest dark:hover:text-emerald-400 transition-colors whitespace-nowrap">Destinations</a>
+        <a href="gallery.html" class="text-forest dark:text-emerald-400 font-bold whitespace-nowrap">Gallery</a>
+        <a href="contact.html" class="hover:text-forest dark:hover:text-emerald-400 transition-colors whitespace-nowrap">Contact</a>
+        <a href="dashboard.html" class="hover:text-forest dark:hover:text-emerald-400 transition-colors whitespace-nowrap">Dashboard</a>
+      </nav>
+
+      <div class="flex items-center gap-2 xl:gap-3 shrink-0">
+        <button
+          class="theme-toggle-btn w-9 h-9 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 flex items-center justify-center hover:scale-105 transition-transform"
+          title="Toggle Light/Dark Theme">
+          <i data-lucide="moon" class="theme-icon-moon w-4 h-4"></i>
+          <i data-lucide="sun" class="theme-icon-sun w-4 h-4 hidden"></i>
+        </button>
+
+        <button
+          class="rtl-toggle-btn w-9 h-9 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 flex items-center justify-center hover:scale-105 transition-transform"
+          title="Toggle RTL / LTR Reading Direction" aria-label="Toggle RTL / LTR Reading Direction">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+          </svg>
+        </button>
+
+        <!-- Primary Auth CTA (Sign Up as Primary CTA) -->
+        <div class="hidden sm:flex items-center">
+          <a href="signup.html" class="btn-primary text-xs px-3.5 xl:px-5 py-2 xl:py-2.5 shadow-sm inline-flex items-center gap-1.5 xl:gap-2 whitespace-nowrap">
+            <i data-lucide="user-plus" class="w-3.5 h-3.5 text-amberAccent"></i>
+            <span>Sign Up</span>
+          </a>
+        </div>
+
+        <button id="mobile-menu-toggle"
+          class="lg:hidden w-10 h-10 rounded-2xl bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-stone-800 dark:text-stone-200">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div id="mobile-drawer" class="fixed inset-0 z-50 bg-stone-950/60 backdrop-blur-sm hidden transition-opacity">
+    <div
+      class="drawer-content fixed top-0 right-0 w-80 max-w-full h-full bg-cream dark:bg-[#15221D] p-6 shadow-2xl flex flex-col justify-between transition-transform duration-300 translate-x-full">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-stone-200 dark:border-stone-800">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-xl bg-forest text-white flex items-center justify-center">
+              <i data-lucide="trees" class="w-4 h-4 text-amberAccent"></i>
+            </div>
+            <span class="font-serif font-bold text-lg text-forest dark:text-emerald-300">SYLVAN</span>
+          </div>
+          <button id="mobile-drawer-close"
+            class="w-8 h-8 rounded-full bg-stone-200 dark:bg-stone-800 flex items-center justify-center">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <nav class="flex flex-col gap-2.5 mt-6 text-sm font-semibold">
+          <!-- Home Submenu matching Desktop -->
+          <div class="py-1">
+            <button type="button"
+              class="w-full flex items-center justify-between py-1.5 hover:text-forest dark:hover:text-emerald-400 transition-colors"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); const icon = this.querySelector('i'); if (icon) icon.classList.toggle('rotate-180');">
+              <span class="flex items-center gap-1.5">Home</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 transition-transform duration-200"></i>
+            </button>
+            <div class="pl-4 flex flex-col gap-1.5 mt-1 border-l-2 border-emerald-700/40">
+              <a href="index.html" class="py-1 text-xs font-semibold hover:text-forest">Home 1</a>
+              <a href="home-2.html" class="py-1 text-xs font-semibold hover:text-forest">Home 2</a>
+            </div>
+          </div>
+
+          <a href="about.html" class="py-1.5 hover:text-forest dark:hover:text-emerald-400 transition-colors">About Us</a>
+          <a href="stays.html" class="py-1.5 hover:text-forest dark:hover:text-emerald-400 transition-colors">Stays</a>
+          <a href="activities.html" class="py-1.5 hover:text-forest dark:hover:text-emerald-400 transition-colors">Activities</a>
+          <a href="destinations.html" class="py-1.5 hover:text-forest dark:hover:text-emerald-400 transition-colors">Destinations</a>
+          <a href="gallery.html" class="py-1.5 text-forest dark:text-emerald-300 font-bold">Gallery</a>
+          <a href="contact.html" class="py-1.5 hover:text-forest dark:hover:text-emerald-400 transition-colors">Contact</a>
+          <a href="dashboard.html" class="py-1.5 hover:text-forest dark:hover:text-emerald-400 transition-colors">Dashboard</a>
+        </nav>
+      </div>
+
+      <div class="pt-6 border-t border-stone-200 dark:border-stone-800 flex flex-col gap-3">
+        <a href="login.html" class="btn-secondary text-xs text-center">Log In</a>
+        <a href="signup.html" class="btn-primary text-xs text-center">Create Free Account</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==============================================================
+         GALLERY – SECTION 1: CINEMATIC GALLERY HERO
+         ============================================================== -->
+    <section data-scroll-anim="fade-down" class="relative py-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=2000&q=80"
+          alt="Alpine Mountain Mist Twilight" class="w-full h-full object-cover filter brightness-[0.60]">
+        <div class="absolute inset-0 bg-stone-950/40"></div>
+      </div>
+
+      <div class="relative z-10 max-w-4xl mx-auto text-center text-white">
+        <span
+          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-amber-200 text-xs font-semibold mb-6">
+          <i data-lucide="image" class="w-3.5 h-3.5 text-amber-300"></i> The Visual Countryside Anthology
+        </span>
+
+        <h1 class="font-serif text-4xl sm:text-6xl font-bold mb-6 leading-tight drop-shadow-md">
+          A Glimpse Into Quiet Solitude.<br>
+          <span class="italic font-display font-normal text-amber-100">Every Moment Captured.</span>
+        </h1>
+
+        <p class="text-stone-200 text-base sm:text-lg max-w-2xl mx-auto font-light leading-relaxed drop-shadow-sm mb-8">
+          Explore architectural wood lounges, sunlit morning bedrooms, mist-shrouded lochs, and bountiful autumn
+          harvests across our collection.
+        </p>
+
+        <!-- Category Filter Buttons Bar -->
+        <div class="flex flex-wrap items-center justify-center gap-2 max-w-2xl mx-auto">
+          <button
+            class="gallery-category-btn px-5 py-2.5 rounded-full text-xs font-semibold bg-emerald-800 text-white shadow-sm"
+            data-category="All">
+            All Photos (12)
+          </button>
+          <button
+            class="gallery-category-btn px-5 py-2.5 rounded-full text-xs font-semibold bg-white/90 dark:bg-stone-800/90 text-stone-800 dark:text-stone-200 hover:bg-emerald-800 hover:text-white transition-all shadow-sm"
+            data-category="Homestays">
+            Homestays
+          </button>
+          <button
+            class="gallery-category-btn px-5 py-2.5 rounded-full text-xs font-semibold bg-white/90 dark:bg-stone-800/90 text-stone-800 dark:text-stone-200 hover:bg-emerald-800 hover:text-white transition-all shadow-sm"
+            data-category="Farmstays">
+            Farmstays
+          </button>
+          <button
+            class="gallery-category-btn px-5 py-2.5 rounded-full text-xs font-semibold bg-white/90 dark:bg-stone-800/90 text-stone-800 dark:text-stone-200 hover:bg-emerald-800 hover:text-white transition-all shadow-sm"
+            data-category="Interiors">
+            Interiors
+          </button>
+          <button
+            class="gallery-category-btn px-5 py-2.5 rounded-full text-xs font-semibold bg-white/90 dark:bg-stone-800/90 text-stone-800 dark:text-stone-200 hover:bg-emerald-800 hover:text-white transition-all shadow-sm"
+            data-category="Nature">
+            Nature
+          </button>
+          <button
+            class="gallery-category-btn px-5 py-2.5 rounded-full text-xs font-semibold bg-white/90 dark:bg-stone-800/90 text-stone-800 dark:text-stone-200 hover:bg-emerald-800 hover:text-white transition-all shadow-sm"
+            data-category="Activities">
+            Activities
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Master Masonry Interactive Grid (Populated & Filtered via js/gallery.js) -->
+    <div class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div id="gallery-masonry-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered by gallery.js with live category switching -->
+      </div>
+    </div>
+
+    <!-- ==============================================================
+         GALLERY – SECTION 2: HOMESTAY & FARMHOUSE INTERIORS
+         ============================================================== -->
+    <section data-scroll-anim="stagger-up"
+      class="py-24 bg-stone-100/70 dark:bg-[#121D18] px-4 sm:px-6 lg:px-8 border-y border-stone-200/60 dark:border-stone-800/60 anim-mosaic-slide-stagger">
+      <div class="max-w-7xl mx-auto">
+        <div class="max-w-2xl mb-12">
+          <span
+            class="text-xs font-bold uppercase tracking-widest text-forest dark:text-emerald-400 block mb-2">Architectural
+            Rest</span>
+          <h2 class="section-title font-serif font-bold text-stone-900 dark:text-stone-100">
+            Homestay & Farmhouse Interiors
+          </h2>
+          <p class="text-stone-600 dark:text-stone-400 text-sm mt-2 leading-relaxed">
+            Reclaimed timber rafters, limestone fireplaces, Belgian linen beds, and clawfoot tubs placed by panoramic
+            windows.
+          </p>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="rounded-3xl overflow-hidden aspect-[4/3] shadow-md group">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+              alt="Stone Fireplace Lounge"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          </div>
+          <div class="rounded-3xl overflow-hidden aspect-[4/3] shadow-md group">
+            <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80"
+              alt="Orchard Bedroom"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          </div>
+          <div class="rounded-3xl overflow-hidden aspect-[4/3] shadow-md group">
+            <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80"
+              alt="Panoramic View Soaking Tub"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         GALLERY – SECTION 3: COUNTRYSIDE LANDSCAPES & OUTDOOR SURROUNDINGS
+         ============================================================== -->
+    <section data-scroll-anim="slide-left" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="max-w-2xl mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-forest dark:text-emerald-400 block mb-2">Pristine
+          Acreage</span>
+        <h2 class="section-title font-serif font-bold text-stone-900 dark:text-stone-100">
+          Countryside Landscapes & Environs
+        </h2>
+        <p class="text-stone-600 dark:text-stone-400 text-sm mt-2 leading-relaxed">
+          Untouched meadows, ancient cypress avenues, crystal river rapids, and high blue ridges untouched by urban
+          sprawl.
+        </p>
+      </div>
+
+      <div class="card-grid-3">
+        <div class="rounded-3xl overflow-hidden aspect-[4/3] shadow-md group">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
+            alt="Tuscan Cypress Hills"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        </div>
+        <div class="rounded-3xl overflow-hidden aspect-[4/3] shadow-md group">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80"
+            alt="Tranquil Cedar River Shallows"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        </div>
+        <div class="rounded-3xl overflow-hidden aspect-[4/3] shadow-md group">
+          <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=800&q=80"
+            alt="Lancaster Dairy Pastures"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         GALLERY – SECTION 4: FARM ACTIVITIES, FOOD EXPERIENCES & GUEST MOMENTS
+         ============================================================== -->
+    <section data-scroll-anim="slide-right"
+      class="py-24 bg-cream dark:bg-[#15221D] px-4 sm:px-6 lg:px-8 border-y border-stone-200/60 dark:border-stone-800/60">
+      <div class="max-w-7xl mx-auto">
+        <div class="max-w-2xl mb-12">
+          <span class="text-xs font-bold uppercase tracking-widest text-forest dark:text-emerald-400 block mb-2">Hands &
+            Hearth</span>
+          <h2 class="section-title font-serif font-bold text-stone-900 dark:text-stone-100">
+            Farm Activities & Culinary Moments
+          </h2>
+          <p class="text-stone-600 dark:text-stone-400 text-sm mt-2 leading-relaxed">
+            Guests baking sourdough in outdoor ovens, picking crisp autumn apples, and gathering around evening cedar
+            bonfires.
+          </p>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="rounded-3xl overflow-hidden aspect-[4/3] shadow-md group">
+            <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80"
+              alt="Wood Oven Sourdough"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          </div>
+          <div class="rounded-3xl overflow-hidden aspect-[4/3] shadow-md group">
+            <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=800&q=80"
+              alt="Pergola Garden Dining"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          </div>
+          <div class="rounded-3xl overflow-hidden aspect-[4/3] shadow-md group">
+            <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=800&q=80"
+              alt="Evening Bonfire Gathering"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         GALLERY – SECTION 5: FEATURED PROPERTY GALLERY & BOOKING CTA
+         ============================================================== -->
+    <section data-scroll-anim="zoom-out" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div
+        class="p-10 sm:p-14 rounded-3xl bg-forest text-white shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-amber-300 block mb-2">Book Your Visit</span>
+          <h3 class="font-serif text-3xl font-bold mb-2">Inspired by These Countryside Frames?</h3>
+          <p class="text-xs sm:text-sm text-stone-200 max-w-lg leading-relaxed">
+            Reserve any of the 12 featured homestays, timber cottages, or organic farmsteads seen in this gallery.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center gap-3">
+          <a href="stays.html" class="cta-btn-banner btn-amber shadow-md">
+            <i data-lucide="compass" class="w-4 h-4 shrink-0"></i> <span>Explore All 12 Stays</span>
+          </a>
+          <a href="booking.html?id=syl-01"
+            class="cta-btn-banner border border-white/40 hover:bg-white/10 text-white">
+            <i data-lucide="calendar" class="w-4 h-4 shrink-0"></i> <span>Instant Reserve</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Fullscreen Lightbox Modal (with Next / Prev controls) -->
+  <div id="gallery-lightbox-modal" class="lightbox-modal">
+    <button id="lightbox-close-btn"
+      class="absolute top-6 right-6 w-11 h-11 rounded-full bg-stone-900/80 text-white hover:bg-stone-800 flex items-center justify-center transition-colors shadow-lg z-50">
+      <i data-lucide="x" class="w-6 h-6"></i>
+    </button>
+
+    <button id="lightbox-prev-btn"
+      class="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-stone-900/80 text-white hover:bg-stone-800 flex items-center justify-center transition-colors shadow-lg z-50">
+      <i data-lucide="chevron-left" class="w-6 h-6"></i>
+    </button>
+
+    <button id="lightbox-next-btn"
+      class="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-stone-900/80 text-white hover:bg-stone-800 flex items-center justify-center transition-colors shadow-lg z-50">
+      <i data-lucide="chevron-right" class="w-6 h-6"></i>
+    </button>
+
+    <div class="max-w-5xl w-full max-h-[85vh] flex flex-col items-center justify-center space-y-4">
+      <div class="max-h-[70vh] rounded-2xl overflow-hidden shadow-2xl">
+        <img id="lightbox-active-img" src="" alt="Countryside Gallery High-Resolution View"
+          class="max-h-[70vh] w-auto max-w-full object-contain">
+      </div>
+      <div class="text-center text-white space-y-1">
+        <h4 id="lightbox-caption-title" class="font-serif font-bold text-xl"></h4>
+        <p id="lightbox-caption-desc" class="text-xs text-stone-300"></p>
+        <span id="lightbox-counter" class="text-[11px] font-mono text-amber-300 block"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==============================================================
+       SHARED FOOTER
+       ============================================================== -->
+  <footer class="bg-stone-900 text-stone-300 pt-20 pb-12 border-t border-stone-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-stone-800">
+        <div class="lg:col-span-2">
+          <a href="index.html" class="flex items-center gap-3 mb-4 group">
+            <div class="w-9 h-9 rounded-2xl bg-emerald-700 text-white flex items-center justify-center">
+              <i data-lucide="trees" class="w-5 h-5 text-amberAccent"></i>
+            </div>
+            <span class="font-serif text-2xl font-bold text-white tracking-tight">SYLVAN</span>
+          </a>
+          <p class="text-xs text-stone-400 max-w-sm leading-relaxed mb-6">
+            A premium homestay and farmstay booking platform helping conscious travellers reconnect with nature through
+            authentic rural architecture, organic agriculture, and generous local hospitality.
+          </p>
+          <div class="flex items-center gap-2.5 text-stone-300">
+            <!-- Instagram (Authentic Radial Gradient Hover) -->
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+              class="social-icon-btn social-instagram" aria-label="SYLVAN on Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+            <!-- Facebook (Authentic #1877F2 Blue Hover) -->
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+              class="social-icon-btn social-facebook" aria-label="SYLVAN on Facebook" title="Facebook">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <!-- X / Twitter (Authentic Sleek Black Hover) -->
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn social-x"
+              aria-label="SYLVAN on X (Twitter)" title="X (Twitter)">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+            <!-- YouTube (Authentic #FF0000 Red Hover) -->
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer"
+              class="social-icon-btn social-youtube" aria-label="SYLVAN on YouTube" title="YouTube">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </a>
+            <!-- Pinterest (Authentic #E60023 Crimson Hover) -->
+            <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer"
+              class="social-icon-btn social-pinterest" aria-label="SYLVAN on Pinterest" title="Pinterest">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-serif font-bold text-sm text-white uppercase tracking-wider mb-4">Explore</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="stays.html" class="hover:text-amber-400 transition-colors">All Stays Catalog</a></li>
+            <li><a href="stays.html?category=Farmhouses" class="hover:text-amber-400 transition-colors">Organic
+                Farmhouses</a></li>
+            <li><a href="stays.html?category=Countryside Cottages" class="hover:text-amber-400 transition-colors">Timber
+                Cottages</a></li>
+            <li><a href="stays.html?category=Eco Retreats" class="hover:text-amber-400 transition-colors">Eco
+                Sanctuaries</a></li>
+            <li><a href="destinations.html" class="hover:text-amber-400 transition-colors">Destinations Guide</a></li>
+            <li><a href="gallery.html" class="hover:text-amber-400 transition-colors">Photo Gallery</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-serif font-bold text-sm text-white uppercase tracking-wider mb-4">Hospitality</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="activities.html" class="hover:text-amber-400 transition-colors">Farm Experiences</a></li>
+            <li><a href="activities.html" class="hover:text-amber-400 transition-colors">Outdoor Adventures</a></li>
+            <li><a href="about.html" class="hover:text-amber-400 transition-colors">Our Philosophy</a></li>
+            <li><a href="contact.html#host-enquiry" class="hover:text-amber-400 transition-colors">Become a Host</a>
+            </li>
+            <li><a href="contact.html" class="hover:text-amber-400 transition-colors">Host Support & FAQ</a></li>
+            <li><a href="dashboard.html" class="text-emerald-400 font-semibold hover:underline">Guest Dashboard</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-serif font-bold text-sm text-white uppercase tracking-wider mb-4">The Journal</h4>
+          <p class="text-xs text-stone-400 mb-4 leading-relaxed">
+            Subscribe for seasonal farm harvests, exclusive host retreats, and quiet getaway stories.
+          </p>
+          <form class="newsletter-form space-y-2">
+            <input type="email" placeholder="Your email address" required
+              class="w-full px-4 py-2.5 rounded-2xl bg-stone-800 border border-stone-700 text-xs text-white placeholder-stone-500 focus:outline-hidden focus:border-emerald-500">
+            <button type="submit" class="w-full btn-primary text-xs py-2.5">
+              Subscribe Free
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-4">
+        <p>&copy; 2026 SYLVAN Rural Hospitality Group. All rights reserved.</p>
+        <div class="flex items-center gap-6">
+          <a href="contact.html" class="hover:text-stone-300">Privacy Policy</a>
+          <a href="contact.html" class="hover:text-stone-300">Terms of Service</a>
+          <a href="contact.html" class="hover:text-stone-300">Security</a>
+          <a href="dashboard.html" class="hover:text-stone-300">Account</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+
+</html>
