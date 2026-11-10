@@ -310,7 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         </td>
         <td class="py-4 px-4 text-xs text-stone-600 dark:text-stone-400 whitespace-nowrap min-w-[170px] text-start">
-          <span class="block font-semibold text-stone-800 dark:text-stone-200">${b.checkIn} &rarr; ${b.checkOut}</span>
+          <span class="block font-semibold text-stone-800 dark:text-stone-200" dir="ltr">${b.checkIn} &rarr; ${b.checkOut}</span>
           <span class="text-[11px] text-stone-500 mt-0.5 block">${b.nights} Nights · ${b.guests.adults} Adults${b.guests.children ? `, ${b.guests.children} Children` : ''}</span>
         </td>
         <td class="py-4 px-4 text-xs font-bold text-stone-900 dark:text-stone-100 whitespace-nowrap text-start">
@@ -320,15 +320,17 @@ document.addEventListener('DOMContentLoaded', () => {
         <td class="py-4 px-4 whitespace-nowrap text-start">
           ${renderStatusBadge(b.status)}
         </td>
-        <td class="py-4 px-4 text-end space-x-2 whitespace-nowrap">
-          <button class="px-3 py-1.5 rounded-full text-xs font-semibold bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 text-stone-700 dark:text-stone-300 transition-all" onclick="window.showInvoiceModal('${b.id}')">
-            Receipt
-          </button>
-          ${b.status === 'Confirmed' && b.isUpcoming ? `
-            <button class="px-3 py-1.5 rounded-full text-xs font-semibold text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-all" onclick="window.cancelTripAction('${b.id}')">
-              Cancel
+        <td class="py-4 px-4 text-end whitespace-nowrap">
+          <div class="inline-flex items-center gap-2 justify-end">
+            <button class="px-3 py-1.5 rounded-full text-xs font-semibold bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 text-stone-700 dark:text-stone-300 transition-all" onclick="window.showInvoiceModal('${b.id}')">
+              Receipt
             </button>
-          ` : ''}
+            ${b.status === 'Confirmed' && b.isUpcoming ? `
+              <button class="px-3 py-1.5 rounded-full text-xs font-semibold text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-all" onclick="window.cancelTripAction('${b.id}')">
+                Cancel
+              </button>
+            ` : ''}
+          </div>
         </td>
       </tr>
     `).join('');
