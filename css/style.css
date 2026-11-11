@@ -134,6 +134,12 @@ html[dir="rtl"] td.text-right {
   text-align: left !important;
 }
 
+/* RTL Dashboard Overview Next Trip card image alignment */
+html[dir="rtl"] .next-trip-bg-img {
+  right: auto !important;
+  left: 0 !important;
+}
+
 
 
 /* Typography Utility Classes */

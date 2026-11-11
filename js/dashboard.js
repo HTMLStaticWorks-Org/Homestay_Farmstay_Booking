@@ -129,9 +129,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (upcoming.length > 0) {
         const next = upcoming[0];
         nextTripBox.innerHTML = `
-          <div class="relative bg-gradient-to-r from-emerald-900 to-emerald-950 text-white rounded-3xl p-6 sm:p-8 overflow-hidden shadow-xl">
-            <div class="absolute right-0 top-0 w-1/2 h-full opacity-20 pointer-events-none">
-              <img src="${next.stayImage}" alt="" class="w-full h-full object-cover">
+          <div class="relative bg-gradient-to-r rtl:bg-gradient-to-l from-emerald-900 to-emerald-950 text-white rounded-3xl p-6 sm:p-8 overflow-hidden shadow-xl">
+            <div class="next-trip-bg-img absolute right-0 rtl:right-auto rtl:left-0 top-0 w-1/2 h-full opacity-20 pointer-events-none">
+              <img src="${next.stayImage}" alt="${next.stayName}" class="w-full h-full object-cover">
             </div>
             <div class="relative z-10 max-w-xl">
               <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-800/80 border border-emerald-600/40 text-emerald-200 text-xs font-semibold mb-4">
