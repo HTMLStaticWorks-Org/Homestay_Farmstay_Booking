@@ -446,20 +446,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     container.innerHTML = past.map(b => `
-      <div class="bg-white dark:bg-[#15221D] rounded-2xl p-5 border border-stone-200 dark:border-stone-800 shadow-xs flex items-center justify-between">
-        <div class="flex items-center gap-4">
-          <img src="${b.stayImage}" alt="" class="w-16 h-16 rounded-xl object-cover shrink-0">
-          <div>
-            <span class="text-[11px] font-mono text-stone-400">Completed · #${b.id}</span>
-            <h4 class="font-serif font-bold text-base text-stone-900 dark:text-stone-100">${b.stayName}</h4>
-            <p class="text-xs text-stone-500">${b.checkIn} to ${b.checkOut} · Total: $${b.totalPrice.toFixed(2)}</p>
+      <div class="bg-white dark:bg-[#15221D] rounded-2xl p-5 border border-stone-200 dark:border-stone-800 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="flex items-start sm:items-center gap-3.5 sm:gap-4 min-w-0">
+          <img src="${b.stayImage}" alt="${b.stayName}" class="w-16 h-16 rounded-xl object-cover shrink-0">
+          <div class="min-w-0">
+            <span class="text-[11px] font-mono text-stone-400 block">Completed · #${b.id}</span>
+            <h4 class="font-serif font-bold text-base text-stone-900 dark:text-stone-100 leading-snug">${b.stayName}</h4>
+            <p class="text-xs text-stone-500 mt-0.5">${b.checkIn} to ${b.checkOut} · Total: $${b.totalPrice.toFixed(2)}</p>
           </div>
         </div>
-        <div class="flex items-center gap-2">
-          <a href="stay-details.html?id=${b.stayId}" class="px-3 py-1.5 rounded-full text-xs font-semibold border border-stone-200 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800 transition-all">
+        <div class="flex items-center gap-2.5 pt-3 sm:pt-0 border-t sm:border-t-0 border-stone-100 dark:border-stone-800/80 shrink-0">
+          <a href="stay-details.html?id=${b.stayId}" class="flex-1 sm:flex-initial text-center px-3.5 py-2 sm:py-1.5 rounded-full text-xs font-semibold border border-stone-200 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800 transition-all whitespace-nowrap">
             Review Stay
           </a>
-          <a href="booking.html?id=${b.stayId}" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-800 hover:bg-emerald-900 text-white transition-all shadow-xs">
+          <a href="booking.html?id=${b.stayId}" class="flex-1 sm:flex-initial text-center px-4 py-2 sm:py-1.5 rounded-full text-xs font-semibold bg-emerald-800 hover:bg-emerald-900 text-white transition-all shadow-xs whitespace-nowrap">
             Re-Book
           </a>
         </div>
