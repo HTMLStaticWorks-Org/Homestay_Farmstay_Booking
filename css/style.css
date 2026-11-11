@@ -77,20 +77,26 @@ html {
   background-color: var(--bg-primary);
   -webkit-tap-highlight-color: transparent;
   transition: background-color 0.3s ease, color 0.3s ease;
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100%;
 }
 
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100%;
   position: relative;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-size: 16px;
   line-height: 1.6;
+}
+
+header.sticky {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 50 !important;
 }
 
 /* RTL Global Adjustments */
