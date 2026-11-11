@@ -77,12 +77,16 @@ html {
   background-color: var(--bg-primary);
   -webkit-tap-highlight-color: transparent;
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  max-width: 100%;
+  position: relative;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-size: 16px;
@@ -736,6 +740,12 @@ html[dir="rtl"] #back-to-top-btn {
    ============================================================== */
 #mobile-drawer {
   z-index: 10000 !important;
+  overflow: hidden;
+}
+
+#mobile-drawer.hidden {
+  display: none !important;
+  pointer-events: none !important;
 }
 
 #mobile-drawer .drawer-content {
@@ -744,6 +754,32 @@ html[dir="rtl"] #back-to-top-btn {
   max-height: 100dvh;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* Strict RTL alignment for drawer and submenus */
+html[dir="rtl"] #mobile-drawer .drawer-content {
+  left: 0 !important;
+  right: auto !important;
+  text-align: right;
+}
+
+html[dir="rtl"] #mobile-drawer nav {
+  text-align: right;
+}
+
+html[dir="rtl"] #mobile-drawer nav a,
+html[dir="rtl"] #mobile-drawer nav button {
+  text-align: right;
+  justify-content: space-between;
+}
+
+html[dir="rtl"] #mobile-drawer .border-l-2 {
+  border-left-width: 0 !important;
+  border-right-width: 2px !important;
+  padding-left: 0 !important;
+  padding-right: 1rem !important;
 }
 
 /* Ensure floating back-to-top never overlaps mobile drawer */

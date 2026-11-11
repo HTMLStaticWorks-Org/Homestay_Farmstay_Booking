@@ -159,19 +159,32 @@ const SylvanNavigation = {
 
     const closeDrawer = () => {
       const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
-      mobileDrawer?.querySelector('.drawer-content')?.classList.add(isRtl ? '-translate-x-full' : 'translate-x-full');
+      const drawerContent = mobileDrawer?.querySelector('.drawer-content');
+      if (drawerContent) {
+        drawerContent.classList.remove('translate-x-0');
+        drawerContent.classList.add(isRtl ? '-translate-x-full' : 'translate-x-full');
+      }
       document.body.classList.remove('drawer-open', 'overflow-hidden');
       setTimeout(() => mobileDrawer?.classList.add('hidden'), 300);
     };
 
     if (menuToggle && mobileDrawer) {
       menuToggle.addEventListener('click', () => {
+        const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+        const drawerContent = mobileDrawer.querySelector('.drawer-content');
+        if (drawerContent) {
+          drawerContent.classList.remove('translate-x-0');
+          drawerContent.classList.add(isRtl ? '-translate-x-full' : 'translate-x-full');
+        }
         mobileDrawer.classList.remove('hidden');
         document.body.classList.add('drawer-open', 'overflow-hidden');
         if (window.lucide) lucide.createIcons();
         setTimeout(() => {
-          mobileDrawer.querySelector('.drawer-content')?.classList.remove('translate-x-full', '-translate-x-full');
-        }, 10);
+          if (drawerContent) {
+            drawerContent.classList.remove('translate-x-full', '-translate-x-full');
+            drawerContent.classList.add('translate-x-0');
+          }
+        }, 20);
       });
     }
 
