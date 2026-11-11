@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close mobile sidebar if open
     const sidebar = document.getElementById('dash-sidebar');
-    if (sidebar && window.innerWidth < 1024) {
+    if (sidebar && window.innerWidth < 1280) {
       sidebar.classList.add('-translate-x-full');
     }
 

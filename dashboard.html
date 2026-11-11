@@ -51,13 +51,13 @@
 <body class="bg-[#FAF8F2] dark:bg-[#0F1714] text-[#1C2420] dark:text-[#F3F7F5] transition-colors duration-300">
 
   <!-- Main Dashboard Wrapper -->
-  <div id="dashboard-wrapper" class="min-h-screen flex flex-col lg:flex-row">
+  <div id="dashboard-wrapper" class="min-h-screen flex flex-col xl:flex-row">
 
     <!-- ==============================================================
          DASHBOARD FIXED SIDEBAR
          ============================================================== -->
     <aside id="dash-sidebar"
-      class="fixed inset-y-0 left-0 z-50 w-72 bg-white dark:bg-[#15221D] border-r border-stone-200 dark:border-stone-800 flex flex-col justify-between transition-transform duration-300 -translate-x-full lg:translate-x-0 shadow-xl lg:shadow-none">
+      class="fixed inset-y-0 left-0 z-50 w-72 bg-white dark:bg-[#15221D] border-r border-stone-200 dark:border-stone-800 flex flex-col justify-between transition-transform duration-300 -translate-x-full xl:translate-x-0 shadow-xl xl:shadow-none">
 
       <!-- Brand & User Quick Info -->
       <div class="p-6">
@@ -75,7 +75,7 @@
           </a>
 
           <button id="dash-sidebar-close"
-            class="lg:hidden w-8 h-8 rounded-full bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-stone-600">
+            class="xl:hidden w-8 h-8 rounded-full bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-stone-600">
             <i data-lucide="x" class="w-4 h-4"></i>
           </button>
         </div>
@@ -154,14 +154,14 @@
     <!-- ==============================================================
          DASHBOARD MAIN CONTENT AREA
          ============================================================== -->
-    <div class="flex-1 lg:pl-72 flex flex-col min-h-screen">
+    <div class="flex-1 xl:pl-72 flex flex-col min-h-screen">
 
       <!-- Top Dashboard Header Bar -->
       <header
         class="h-20 bg-white/80 dark:bg-[#15221D]/80 backdrop-blur-md border-b border-stone-200 dark:border-stone-800 px-4 sm:px-8 flex items-center justify-between gap-2 sticky top-0 z-40">
         <div class="flex items-center gap-2.5 sm:gap-4 min-w-0">
           <button id="dash-sidebar-toggle"
-            class="lg:hidden w-10 h-10 shrink-0 rounded-2xl bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-stone-800 dark:text-stone-200">
+            class="xl:hidden w-10 h-10 shrink-0 rounded-2xl bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-stone-800 dark:text-stone-200">
             <i data-lucide="menu" class="w-5 h-5"></i>
           </button>
           <h1 id="dash-header-title"
