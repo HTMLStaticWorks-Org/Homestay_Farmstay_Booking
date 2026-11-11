@@ -471,7 +471,7 @@ const SYLVAN_DATA = {
         "https://images.unsplash.com/photo-1488441770602-aed21fc49bd5?auto=format&fit=crop&w=1200&q=80",
         "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80",
         "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=80",
         "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1200&q=80"
       ],
       description: "Step across a gently swaying timber suspension bridge into a high-canopy sanctuary. Hear the gentle murmurs of moss-draped old growth forest, sleep under skylights that frame cathedral branches, and soak in warm copper tubs among the birds.",
@@ -1136,7 +1136,7 @@ const SYLVAN_DATA = {
       category: "Nature",
       title: "Misty Pine Forest & Alpine Lake",
       location: "Cascade Mountains",
-      image: "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=900&q=80",
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=900&q=80",
       description: "Tranquil mirror waters reflecting old-growth evergreen forest canopy."
     }
   ],
